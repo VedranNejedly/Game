@@ -6,13 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public float movementSpeed = 10f;
-
     public float gravity = -9.81f;
-
+    public Animator animator;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    bool isGrounded;
+    public bool isGrounded;
     public float jumpHeight = 3f;
     
     Vector3 velocity;
@@ -34,6 +33,13 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+        //Provjeri da li se igrač kreće po bilo kojoj osi, ukoliko da pokreni prikladnu animaciju
+        if(move != Vector3.zero){
+            animator.SetBool("isMoving",true);
+        }   
+        else{
+            animator.SetBool("isMoving",false);
+        }
         controller.Move(move * movementSpeed * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && isGrounded){
