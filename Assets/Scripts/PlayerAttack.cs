@@ -6,6 +6,8 @@ public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
     public GameObject attackArea;
+    public int meeleDamage = 5;
+
 
     private bool attacking = false;
     float timeToAttack = 0.25f;
@@ -36,4 +38,11 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+
+    //ITEMS EFFECTS CODE
+    public void updateMeelePlayerAttack(int damageMod){
+        meeleDamage+=damageMod;
+    }
+
 }

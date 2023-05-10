@@ -50,4 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
+
+
+    //ITEMS EFFECTS CODE
+
+    public void updateMovementSpeed(int movementSpeedMod){
+        movementSpeed +=movementSpeedMod;
+    }
 }
