@@ -14,15 +14,30 @@ public class PlayerHealth : MonoBehaviour
 
     // Update is called once per frame
 
-    private void checkPlayerHealth(){
+    public void playerDie(){
         if(health<=0){
             //Destroy player object
             Destroy(gameObject);
         }
     }
 
+    public void upadateMaxHealth(int modificator){
+        maxHealth +=modificator;
+        health +=modificator;
+    }
+
+    public void updateHealth(int modificator){
+        health+=modificator;
+        if(health>maxHealth){
+            health=maxHealth;
+        }
+        if(health<=0){
+            playerDie();
+        }
+    }
+
     void Update()
     {
-        checkPlayerHealth();
+        playerDie();
     }
 }
