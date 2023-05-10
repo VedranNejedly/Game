@@ -7,6 +7,8 @@ TagManager:
   - Rooms
   - SpawnPoint
   - Enemy
+  - DungeonObjSpawnPoint
+  - DungeonObjects
   layers:
   - Default
   - TransparentFX
