@@ -36,6 +36,10 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void swordCurse(){
+        health=1;
+    }
+
     void Update()
     {
         playerDie();

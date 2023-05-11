@@ -7,6 +7,10 @@ public class Item : MonoBehaviour
     [SerializeField] public int maxHealthValue=0;
     [SerializeField] public int movementSpeedMod=0;
     [SerializeField] public int meeleAttackMod=0;
+    [SerializeField] public int magicDamageMod=0;
+    [SerializeField] public bool isSwordOfTheCursed=false;
+    [SerializeField] public bool lifeForceAbsorption = false;
+
 
     
 
@@ -19,6 +23,15 @@ public class Item : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(maxHealthValue);
             other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(movementSpeedMod);
             other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(meeleAttackMod);
+            other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(magicDamageMod);
+
+            if(isSwordOfTheCursed){
+                other.gameObject.GetComponent<PlayerHealth>().swordCurse();
+                other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(99);
+            }
+            if(lifeForceAbsorption){
+                other.gameObject.GetComponent<PlayerAttack>().lifesteal();
+            }
             Destroy(gameObject);
          }
     }

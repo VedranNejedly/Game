@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator;
     public GameObject attackArea;
     public int meeleDamage = 5;
+    public int magicDamage = 5;
+    public bool lifestealOnHit=false;
 
 
     private bool attacking = false;
@@ -20,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("isAttacking",true);
 
     }
+
 
     //Update is called once per frame
     void Update()
@@ -41,8 +44,22 @@ public class PlayerAttack : MonoBehaviour
 
 
     //ITEMS EFFECTS CODE
+
+    //Funkcija updateMeelePlayerAttack() prima cijelobrojnu varijablu damageMod te pomocu te varijable mijenja meeleDamage igraca
     public void updateMeelePlayerAttack(int damageMod){
         meeleDamage+=damageMod;
     }
+    //Funkcija lifesteal() postavlja vrijednost varijable lifestealOnHit u true.
+    //Ta varijabla se koristi kod napada igraca te ukoliko je istinita igrac ce dobiti hp nazad na stavi udarac
+    public void lifesteal(){
+        lifestealOnHit=true;
+    }
+    //Funkfija updateMagicDamage prima cijelobrojnu vrijednost te pomocu te varijable mijenja magicDamage igraca.
+    //magicDamage varijabla se koristi za ranged napade odnosno fireball"
+    public void updateMagicDamage(int magicDamageMod){
+        magicDamage+=magicDamageMod;
+    }
+
+
 
 }
