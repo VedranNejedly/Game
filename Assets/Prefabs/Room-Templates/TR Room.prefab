@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8a5738974163e41b7c4d8f4a9286c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpeningDirection: 3
+  OpeningDirection: 4
   spawned: 0
 --- !u!54 &317174466799375927
 Rigidbody:
