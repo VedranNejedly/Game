@@ -15,7 +15,6 @@ public class AttackArea : MonoBehaviour
     
     private void OnTriggerEnter(Collider other){
         if(other.tag=="Enemy"){
-            Debug.Log("Enemy");
             Enemy enemyHealth = other.GetComponent<Enemy>();
             if(enemyHealth != null){
                 // health.Damage(damage);
