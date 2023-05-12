@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class Companion : MonoBehaviour
 {
@@ -8,6 +10,11 @@ public class Companion : MonoBehaviour
     private float healingCompanionCooldown = 10f;
     private bool companionCanHeal = true;
     [SerializeField] GameObject player; 
+    private Vector3 followPlayer ;
+    public float speed = 5f;
+    public Transform target;
+    NavMeshAgent nav; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +25,15 @@ public class Companion : MonoBehaviour
         if(companionID==3){
             player.GetComponent<PlayerAttack>().enableCompanionDamageBoost();
         }
+
+        nav = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        nav.SetDestination(target.position);
         if(companionID==1){
             healingComapanion();
         }
