@@ -10,6 +10,8 @@ public class Item : MonoBehaviour
     [SerializeField] public int magicDamageMod=0;
     [SerializeField] public bool isSwordOfTheCursed=false;
     [SerializeField] public bool lifeForceAbsorption = false;
+    [SerializeField] public float magicCooldownRecution = 0;
+
 
 
     
@@ -20,11 +22,23 @@ public class Item : MonoBehaviour
         //AKo je gameObject igrac, dohvati komponentu PlayerHealth i uvecaj mu health za healthValue
          if(other.gameObject.tag=="Player"){
             //Update maxHealth igraca
-            other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(maxHealthValue);
-            other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(movementSpeedMod);
-            other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(meeleAttackMod);
-            other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(magicDamageMod);
-
+            if(maxHealthValue>0){
+                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(maxHealthValue);
+            }
+            if(movementSpeedMod>0){
+                other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(movementSpeedMod);
+            }
+            if(meeleAttackMod>0){
+                other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(meeleAttackMod);
+            }
+            if(magicDamageMod>0){
+                other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(magicDamageMod);
+            }
+            
+            if(magicCooldownRecution>0){
+                other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(magicCooldownRecution);
+            }
+            
             if(isSwordOfTheCursed){
                 other.gameObject.GetComponent<PlayerHealth>().swordCurse();
                 other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(99);
