@@ -9,12 +9,19 @@ public class PlayerAttack : MonoBehaviour
     public int meeleDamage = 5;
     public int magicDamage = 5;
     public bool lifestealOnHit=false;
+    public bool companionDamageBoost = false;
 
 
     private bool attacking = false;
     float timeToAttack = 0.25f;
     private float timer = 0f;
     // Start is called before the first frame update
+    void Start(){
+        if(companionDamageBoost){
+            meeleDamage*=2;
+        }
+    }
+
 
     private void Attack(){
         attacking=true;
@@ -47,6 +54,9 @@ public class PlayerAttack : MonoBehaviour
 
     //Funkcija updateMeelePlayerAttack() prima cijelobrojnu varijablu damageMod te pomocu te varijable mijenja meeleDamage igraca
     public void updateMeelePlayerAttack(int damageMod){
+        if(companionDamageBoost){
+            meeleDamage=meeleDamage + damageMod*2;
+        }
         meeleDamage+=damageMod;
     }
     //Funkcija lifesteal() postavlja vrijednost varijable lifestealOnHit u true.
@@ -60,6 +70,12 @@ public class PlayerAttack : MonoBehaviour
         magicDamage+=magicDamageMod;
     }
 
+
+    //COMPANION EFFECTS
+
+    public void enableCompanionDamageBoost(){
+        companionDamageBoost=true;
+    }
 
 
 }
