@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - DungeonObjSpawnPoint
   - DungeonObjects
+  - EnemyList
   layers:
   - Default
   - TransparentFX
