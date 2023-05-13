@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    EnemySpawnAndKillCount esakc;
+
     public Animator animator;
     public int health = 10;
+
+    void Start(){
+        esakc = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawnAndKillCount>();
+    }
 
     public void Damage(int damage){
         health = health - damage;
@@ -15,7 +22,8 @@ public class Enemy : MonoBehaviour
     private void CheckHealth(){
         if(health<=0){
             Invoke("deathAnimation", 2.0f);
-            // Destroy(gameObject);
+            esakc.killCount();
+            Destroy(gameObject);
         }
     }
 
