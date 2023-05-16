@@ -10,6 +10,8 @@ TagManager:
   - DungeonObjSpawnPoint
   - DungeonObjects
   - EnemyList
+  - EnemySpawner
+  - NextLevelTrigger
   layers:
   - Default
   - TransparentFX

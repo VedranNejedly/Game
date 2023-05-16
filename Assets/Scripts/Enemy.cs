@@ -6,9 +6,11 @@ public class Enemy : MonoBehaviour
 {
 
     EnemySpawnAndKillCount esakc;
-
+    TriggerNextLevel tnl;
     public Animator animator;
     public int health = 10;
+    public bool isBoss = false;
+    public bool bossIsDead = false;
 
     void Start(){
         esakc = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawnAndKillCount>();
@@ -21,6 +23,12 @@ public class Enemy : MonoBehaviour
     
     private void CheckHealth(){
         if(health<=0){
+            if(isBoss){
+                bossIsDead = true;
+                tnl = GameObject.FindGameObjectWithTag("NextLevelTrigger").GetComponent<TriggerNextLevel>();
+                tnl.canTriggerNextLevel();
+
+            }
             Invoke("deathAnimation", 2.0f);
             esakc.killCount();
             Destroy(gameObject);

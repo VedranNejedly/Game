@@ -163,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8006232656494609893}
+  - component: {fileID: 1689173664596783481}
   m_Layer: 0
   m_Name: LR Room
   m_TagString: Rooms
@@ -193,6 +194,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1689173664596783481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133262352604495975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f269146c2b1e6542aec62b0812eb61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3304318347505055287
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172ecdc88e3957b4cab36db2596cec1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerFirstTimeInTheRoom: 1
+  wasInRoom: 0
+  door: []
 --- !u!1 &3453240645052023124
 GameObject:
   m_ObjectHideFlags: 0

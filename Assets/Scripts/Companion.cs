@@ -32,12 +32,10 @@ public class Companion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         nav.SetDestination(target.position);
         if(companionID==1){
             healingComapanion();
         }
-        
     }
 
 

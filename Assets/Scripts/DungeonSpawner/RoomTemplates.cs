@@ -8,39 +8,48 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
-
-    // public GameObject[] items;
-    // private bool itemSpawned;
-
     public GameObject  closedRoom;
-
     public List<GameObject> rooms;
-
     public float waitTime;
-    private bool spawnedBoss;
+    private bool spawnedBoss = false;
     public GameObject boss;
-
+    public GameObject nextLevelTrigger;
+    public GameObject[] items;
+    // bool itemSpawned = false;
+    EnemySpawner enemySpawner;
 
     void Update(){  
 
-        // if(waitTime<=0){
-        //     if(spawnedBoss==false){
+        if(waitTime<=0){
+            if(spawnedBoss==false){
+                for(int i=0;i<rooms.Count;i++){
+                    if(i==rooms.Count-1){
+                        enemySpawner = rooms[i].GetComponentInChildren<EnemySpawner>();
+                        enemySpawner.setBoss();
+                    }
+                }
+            }
+        }
+        else{
+            waitTime -= Time.deltaTime;
+        }
+
         //         for(int i=0;i<rooms.Count;i++){
         //             if(i==rooms.Count-1){
-        //                 Instantiate(boss,rooms[i].transform.position,Quaternion.identity);
-        //                 spawnedBoss=true;
+
+        //                 // Instantiate(boss,rooms[i].transform.position,Quaternion.identity);
+        //                 // Instantiate(nextLevelTrigger,rooms[i].transform.position,Quaternion.identity);
+
         //             }
         //         }
         //     }
-            // if(itemSpawned==false){
-            //     //Ako nije spawnan item, spawnaj item na random rangeu prostorija od 0 - broj prostorija - 2 (rooms.Count-1 = boss room), prebaci item u tu prostoriju.
-            //     Instantiate(items[Random.Range(0,items.Length)],rooms[Random.Range(0,rooms.Count-2)].transform.position,Quaternion.identity);
-            //     itemSpawned=true;
-            // }
-        // }else{
-        //     waitTime -= Time.deltaTime;
-        // }
+        //     if(itemSpawned==false){
+        //         Instantiate(items[Random.Range(0,items.Length)],rooms[Random.Range(0,rooms.Count-2)].transform.position,Quaternion.identity);
+        //         itemSpawned=true;
+        //     }
+
 
     }
     
 }
+

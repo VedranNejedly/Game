@@ -6,17 +6,9 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 10;
     public int health = 10;
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     Debug.Log(maxHealth);
-    // }
-
-    // Update is called once per frame
 
     public void playerDie(){
         if(health<=0){
-            //Destroy player object
             Destroy(gameObject);
         }
     }
@@ -39,9 +31,8 @@ public class PlayerHealth : MonoBehaviour
     public void swordCurse(){
         health=1;
     }
-
-    void Update()
-    {
+    
+    void Update(){
         playerDie();
     }
 }

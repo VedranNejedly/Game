@@ -14,9 +14,6 @@ public class Item : MonoBehaviour
 
 
 
-    
-
-
     //Funkcija koja na koliziju s igracem dodijeli item vrijednost igraću
     private void OnTriggerEnter(Collider other){
         //AKo je gameObject igrac, dohvati komponentu PlayerHealth i uvecaj mu health za healthValue
