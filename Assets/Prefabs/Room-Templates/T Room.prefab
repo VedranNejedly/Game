@@ -68,6 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6200171198337079310}
+  - component: {fileID: 4209449210248064041}
   m_Layer: 0
   m_Name: T Room
   m_TagString: Rooms
@@ -97,6 +98,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4209449210248064041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857706676453555310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f269146c2b1e6542aec62b0812eb61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3098550576132541401
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +123,7 @@ GameObject:
   - component: {fileID: 4603967746078266318}
   m_Layer: 0
   m_Name: EnemySpawnerTrigger
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wasInRoom: 0
   door: []
-  enemyCheck: {fileID: 7062681937940321803}
+  bossRoom: 0
 --- !u!1 &4237485477062908173
 GameObject:
   m_ObjectHideFlags: 0

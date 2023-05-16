@@ -5,8 +5,6 @@ using UnityEngine;
 public class RoomSpawner : MonoBehaviour
 {
     public int OpeningDirection;
-    // Update is called once per frame
-
     private RoomTemplates templates;
     private int rand;
     public bool spawned = false;
@@ -38,11 +36,11 @@ public class RoomSpawner : MonoBehaviour
             
             rand=Random.Range(0,templates.rightRooms.Length);
             Instantiate(templates.rightRooms[rand],transform.position, templates.rightRooms[rand].transform.rotation);
-
             }
             spawned=true;
        }
     }
+
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("SpawnPoint")){
             if(other.GetComponent<RoomSpawner>().spawned == false && spawned == false){

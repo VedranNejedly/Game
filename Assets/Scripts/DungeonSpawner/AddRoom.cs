@@ -11,3 +11,5 @@ public class AddRoom : MonoBehaviour
         templates.rooms.Add(this.gameObject);
     }
 }
+
+
