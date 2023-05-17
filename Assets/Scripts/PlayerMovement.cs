@@ -13,12 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
     public float jumpHeight = 3f;
-    
     Vector3 velocity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -52,9 +51,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag=="NextLevelTrigger"){
+            TriggerNextLevel tnl = other.GetComponent<TriggerNextLevel>();
+            if(tnl.nextLevelTrigger){
+                controller.enabled = false;
+                controller.transform.position = new Vector3(1,1,1);
+                controller.enabled = true;
+            }
+            else{
+                return;
+            }
+
+        }
+    }
     //ITEMS EFFECTS CODE
 
     public void updateMovementSpeed(int movementSpeedMod){
         movementSpeed +=movementSpeedMod;
     }
+
+
+
 }

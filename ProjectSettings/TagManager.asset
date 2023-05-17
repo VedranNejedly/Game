@@ -12,6 +12,7 @@ TagManager:
   - EnemyList
   - EnemySpawner
   - NextLevelTrigger
+  - ResetPoint
   layers:
   - Default
   - TransparentFX

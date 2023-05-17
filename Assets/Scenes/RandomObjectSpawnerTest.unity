@@ -646,6 +646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 806730190}
   health: 10
+  isBoss: 0
+  bossIsDead: 0
 --- !u!65 &806730192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -737,6 +739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   health: 100
+  isBoss: 0
+  bossIsDead: 0
 --- !u!136 &1115469349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1413,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 6085888158342615235, guid: 842568af70e125e44a38bc7a2012cd03, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085888158342615235, guid: 842568af70e125e44a38bc7a2012cd03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6863129201759013497, guid: 842568af70e125e44a38bc7a2012cd03, type: 3}
       propertyPath: m_RootOrder
