@@ -10,6 +10,12 @@ public class PlayerMagic : MonoBehaviour
     public float magicSpeed=10;
     public float castCooldownInSeconds = 10f;
     public bool canCast = true;
+    public bool canCastMagicCircle = true;
+    public GameObject magicCircle;
+    public GameObject magicCircleVisual;
+
+    private int magicCircleCounter = 0;
+
 
 
  
@@ -23,9 +29,19 @@ public class PlayerMagic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if(Input.GetMouseButtonDown(1)){
+            if(Input.GetKeyDown(KeyCode.Q)){
                 castAttackMagic();
             }
+
+
+            if(Input.GetKeyDown(KeyCode.E)){
+                if(canCastMagicCircle){
+                    castMagicCircleCycle();
+                }
+            }
+
+            
+
 
     }
 
@@ -47,5 +63,41 @@ public class PlayerMagic : MonoBehaviour
         canCast = false;
         yield return new WaitForSeconds(castCooldownInSeconds);
         canCast = true;
+    }
+
+
+    private void castMagicCircleCycle(){
+        canCastMagicCircle = false;
+        castMagicCircle();
+        Invoke("disableMagicCircle",1.0f);
+        Invoke("castMagicCircle",2.0f);
+        Invoke("disableMagicCircle",3.0f);
+        Invoke("castMagicCircle",4.0f);
+        Invoke("disableMagicCircle",5.0f);
+        Invoke("castMagicCircle",6.0f);
+        Invoke("disableMagicCircle",7.0f);
+        Invoke("castMagicCircle",8.0f);
+        Invoke("disableMagicCircle",9.0f);
+        Invoke("enableCastingMagicCircle",30.0f);
+
+
+    }
+    private void castMagicCircle(){
+        magicCircle.SetActive(true);
+        if(magicCircleCounter==0){
+            magicCircleVisual.SetActive(true);
+        }
+        magicCircleCounter++;
+    }
+    private void disableMagicCircle(){
+        magicCircle.SetActive(false);
+        magicCircleCounter++;
+
+        if(magicCircleCounter == 10){
+            magicCircleVisual.SetActive(false);
+        }
+    }
+    private void enableCastingMagicCircle(){
+        canCastMagicCircle = true;
     }
 }
