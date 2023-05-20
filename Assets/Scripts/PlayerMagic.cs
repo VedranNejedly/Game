@@ -53,6 +53,8 @@ public class PlayerMagic : MonoBehaviour
             return;
         }
         var magic  = Instantiate(magicPrefab,magicSpawnPoint.position,magicSpawnPoint.rotation);
+        magic.transform.Rotate(0,-90,0,Space.Self);
+
         magic.GetComponent<Rigidbody>().velocity = magicSpawnPoint.forward * magicSpeed;
         StartCoroutine(StartCooldown());
        
@@ -70,14 +72,14 @@ public class PlayerMagic : MonoBehaviour
         canCastMagicCircle = false;
         castMagicCircle();
         Invoke("disableMagicCircle",1.0f);
-        Invoke("castMagicCircle",2.0f);
+        Invoke("castMagicCircle",1.01f);
+        Invoke("disableMagicCircle",2.0f);
+        Invoke("castMagicCircle",2.01f);
         Invoke("disableMagicCircle",3.0f);
-        Invoke("castMagicCircle",4.0f);
+        Invoke("castMagicCircle",3.01f);
+        Invoke("disableMagicCircle",4.0f);
+        Invoke("castMagicCircle",4.01f);
         Invoke("disableMagicCircle",5.0f);
-        Invoke("castMagicCircle",6.0f);
-        Invoke("disableMagicCircle",7.0f);
-        Invoke("castMagicCircle",8.0f);
-        Invoke("disableMagicCircle",9.0f);
         Invoke("enableCastingMagicCircle",30.0f);
 
 

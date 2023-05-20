@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     EnemySpawnAndKillCount esakc;
     TriggerNextLevel tnl;
     PlayerHealth PlayerHealth;
+    PlayerBlock playerBlocking;
 
     public Animator animator;
     public int health = 10;
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour
         esakc = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawnAndKillCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerBlocking = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBlock>();
+
 
         nav = GetComponent<NavMeshAgent>();
     }
@@ -84,7 +87,9 @@ public class Enemy : MonoBehaviour
             return;
         }
         animator.SetBool("isAttacking",true);
-        PlayerHealth.updateHealth(-damage);
+        if(!(playerBlocking.playerIsBlocking)){
+            PlayerHealth.updateHealth(-damage);
+        }
         enemyAlreadyAttacked = true;
         Invoke("ResetAttack",3.0f);
         // StartCoroutine(ResetAttack());
