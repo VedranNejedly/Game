@@ -1047,7 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683484166}
   m_Layer: 10
-  m_Name: MagicSpawnPint
+  m_Name: MagicSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1670,10 +1670,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList:
   - {fileID: 3070779020065526389, guid: 272c6a6a1a1c3ba4f89438339637add2, type: 3}
-  - {fileID: 3070779020065526389, guid: 272c6a6a1a1c3ba4f89438339637add2, type: 3}
-  - {fileID: 3070779020065526389, guid: 272c6a6a1a1c3ba4f89438339637add2, type: 3}
-  - {fileID: 3070779020065526389, guid: 272c6a6a1a1c3ba4f89438339637add2, type: 3}
-  - {fileID: 3070779020065526389, guid: 272c6a6a1a1c3ba4f89438339637add2, type: 3}
+  - {fileID: 100066, guid: 3de438e70702ebf428d028c739828f43, type: 3}
+  - {fileID: 100066, guid: dcf56777c6c6fc6469501dcbc7aa5b90, type: 3}
+  - {fileID: 100066, guid: 466da1a3966b8d04fa7b380a6a520a6b, type: 3}
+  - {fileID: 100066, guid: d9b4f1437b749dc43bb121e0b4726e21, type: 3}
+  - {fileID: 100066, guid: 98976c6360cf0ef42bc60d4aa956e765, type: 3}
+  - {fileID: 4304677692894767866, guid: 0e8d4e250b4dd754dab9215f36241432, type: 3}
+  - {fileID: 3595625012628118935, guid: 156ea8d7801e10143a361335f8615ae7, type: 3}
 --- !u!4 &1243169583
 Transform:
   m_ObjectHideFlags: 0
@@ -1911,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8722469680248324860, guid: c8294d7cdad307d46bdb4eae72a071b8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8722469680248324860, guid: c8294d7cdad307d46bdb4eae72a071b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2102,7 +2105,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429432562999914471
 MonoBehaviour:
@@ -2402,7 +2405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105777988806917057, guid: ad4fc43efe8b5a5408aae96a28042bd0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4105777988806917057, guid: ad4fc43efe8b5a5408aae96a28042bd0, type: 3}
       propertyPath: m_LocalPosition.x
