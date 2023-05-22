@@ -69,7 +69,6 @@ public class Enemy : MonoBehaviour
                 bossIsDead = true;
                 tnl = GameObject.FindGameObjectWithTag("NextLevelTrigger").GetComponent<TriggerNextLevel>();
                 tnl.canTriggerNextLevel();
-
             }
             // Invoke("deathAnimation", 2.0f);
             esakc.killCount();
@@ -130,6 +129,15 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag=="Player"){
             AttackPlayer();
         }
+
+        if(other.gameObject.tag == "Enemy"){
+            var magnitude = 50;
+        // calculate force vector
+            var force = transform.position - other.transform.position;
+        // normalize force vector to get direction only and trim magnitude
+            force.Normalize();
+            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+        }
     }
 
      private void OnTriggerExit(Collider other){
@@ -143,6 +151,14 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag=="Player"){
             attacking = true;
             AttackPlayer();
+            }
+            if(other.gameObject.tag == "Enemy"){
+            var magnitude = 50;
+        // calculate force vector
+            var force = transform.position - other.transform.position;
+        // normalize force vector to get direction only and trim magnitude
+            force.Normalize();
+            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
 
         }
     }
