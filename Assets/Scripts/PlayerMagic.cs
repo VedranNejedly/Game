@@ -32,8 +32,6 @@ public class PlayerMagic : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Q)){
                 castAttackMagic();
             }
-
-
             if(Input.GetKeyDown(KeyCode.E)){
                 if(canCastMagicCircle){
                     castMagicCircleCycle();
@@ -97,6 +95,7 @@ public class PlayerMagic : MonoBehaviour
 
         if(magicCircleCounter == 10){
             magicCircleVisual.SetActive(false);
+            magicCircleCounter = 0;
         }
     }
     private void enableCastingMagicCircle(){

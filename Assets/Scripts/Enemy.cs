@@ -10,11 +10,16 @@ public class Enemy : MonoBehaviour
     PlayerHealth PlayerHealth;
     PlayerBlock playerBlocking;
 
-    public Animator animator;
+    // public Animator animator;
     public int health = 10;
     public bool isBoss = false;
     public bool bossIsDead = false;
     public int damage = 5;
+    public bool attacking = false;
+    public bool isDying = false;
+    public bool isTakingDamage = false;
+
+    public bool isChasing = true;
 
     public NavMeshAgent nav;
     public Transform player;
@@ -42,8 +47,10 @@ public class Enemy : MonoBehaviour
         // playerInSight=Physics.CheckSphere(transform.position,sightRange,whatIsPlayer);
     
         // if(playerInSight && !playerInAttackRange){
-            ChasePlayer();
-        // }
+            if(isChasing && !isDying){
+                ChasePlayer();
+            }
+    // }
         // if(playerInAttackRange && playerInSight){
         //     AttackPlayer();
         // }
@@ -52,6 +59,7 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int damage){
         health = health - damage;
+        isTakingDamage = true;
         CheckHealth();
     }
     
@@ -63,44 +71,60 @@ public class Enemy : MonoBehaviour
                 tnl.canTriggerNextLevel();
 
             }
-            Invoke("deathAnimation", 2.0f);
+            // Invoke("deathAnimation", 2.0f);
             esakc.killCount();
-            Destroy(gameObject);
+            nav.SetDestination(transform.position);
+            isDying = true;
+            GetComponent<Collider>().enabled = false;
+            Invoke("destoryEnemy",2.0f);
+            // Destroy(gameObject);
+        }
+        else{
+            isTakingDamage = true;
         }
     }
-
-    private void deathAnimation(){
-        animator.SetBool("isDying",true);
+    private void destoryEnemy(){
+        Destroy(gameObject);
     }
+    // private void deathAnimation(){
+    //     animator.SetBool("isDying",true);
+    // }
 
 
 
     private void ChasePlayer(){
         nav.SetDestination(player.position);
-        Debug.Log("I am chasing");
+        // animator.SetBool("isChasing",true);
+
     }
 
     private void AttackPlayer(){
         nav.SetDestination(transform.position);
         transform.LookAt(player);
+        isChasing = false;
         if(enemyAlreadyAttacked){
             return;
         }
-        animator.SetBool("isAttacking",true);
+        attacking = true;
+        // animator.SetBool("isAttacking",true);
+        // animator.SetBool("isChasing",false);
+
         if(!(playerBlocking.playerIsBlocking)){
             PlayerHealth.updateHealth(-damage);
         }
         enemyAlreadyAttacked = true;
-        Invoke("ResetAttack",3.0f);
+        attacking = false;
+        Invoke("ResetAttack",1.0f);
         // StartCoroutine(ResetAttack());
     }
 
 
     private void ResetAttack(){
         enemyAlreadyAttacked = false;
-        animator.SetBool("isAttacking",false);
-
+        attacking = true;
     }
+
+ 
 
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag=="Player"){
@@ -110,14 +134,16 @@ public class Enemy : MonoBehaviour
 
      private void OnTriggerExit(Collider other){
         if(other.gameObject.tag=="Player"){
-            animator.SetBool("isAttacking",false);
-            ChasePlayer();
+            attacking = false;
+            isChasing = true;
         }
     }
 
     private void OnTriggerStay(Collider other){
         if(other.gameObject.tag=="Player"){
+            attacking = true;
             AttackPlayer();
+
         }
     }
 
