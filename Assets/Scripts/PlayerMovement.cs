@@ -14,6 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float jumpHeight = 3f;
     Vector3 velocity;
+
+
+    private float timer = 0f;
+    private float timeToUnfreeze = 5.0f;
+    public bool frozen = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +55,17 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+
+        if(frozen){
+            if(timer <= 0){
+                movementSpeed *= 2.0f;
+                frozen = false;
+            }else{
+                timer -= Time.deltaTime;
+            }
+        }
+
     }
 
 
@@ -73,4 +91,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    //Enemy effects on player movement
+
+    public void isHitByFreezeEnemy(){
+        if(!frozen){
+            timer = timeToUnfreeze;
+            movementSpeed *= 0.5f;
+            frozen = true;
+        }
+    }
 }

@@ -4856,5 +4856,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6558665a35bc84995701b4aaf52f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicDamage: 10
+  magicDamage: 100
   explosion: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
