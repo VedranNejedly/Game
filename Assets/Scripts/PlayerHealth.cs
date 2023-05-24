@@ -6,6 +6,10 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 10;
     public int health = 10;
+    public bool isPoisoned = false;
+    private float poisonTimer = 10.0f;
+    private float timerForPoison;
+
 
     public void playerDie(){
         if(health<=0){
@@ -34,5 +38,21 @@ public class PlayerHealth : MonoBehaviour
     
     void Update(){
         playerDie();
+        if(isPoisoned){
+            if(timerForPoison <= 0){
+                isPoisoned = false;
+            }else{
+                timerForPoison -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void tickPoison(){
+        timerForPoison = poisonTimer;
+        if(!isPoisoned){
+            timerForPoison = poisonTimer;
+            health -= 1;
+            isPoisoned = true;
+        }
     }
 }

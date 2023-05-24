@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     TriggerNextLevel tnl;
     PlayerHealth PlayerHealth;
     PlayerBlock playerBlocking;
+    PlayerMovement playerMovement;
 
     // public Animator animator;
     public int health = 10;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     public bool attacking = false;
     public bool isDying = false;
     public bool isTakingDamage = false;
+    public string type = "Normal";
 
     public bool isChasing = true;
 
@@ -36,6 +38,8 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerBlocking = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBlock>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+
 
 
         nav = GetComponent<NavMeshAgent>();
@@ -110,6 +114,12 @@ public class Enemy : MonoBehaviour
 
         if(!(playerBlocking.playerIsBlocking)){
             PlayerHealth.updateHealth(-damage);
+            if(type == "Ice"){
+                playerMovement.isHitByFreezeEnemy();
+            }
+            if(type == "Poison"){
+                PlayerHealth.tickPoison();
+            }
         }
         enemyAlreadyAttacked = true;
         attacking = false;
@@ -159,7 +169,6 @@ public class Enemy : MonoBehaviour
         // normalize force vector to get direction only and trim magnitude
             force.Normalize();
             gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
-
         }
     }
 
