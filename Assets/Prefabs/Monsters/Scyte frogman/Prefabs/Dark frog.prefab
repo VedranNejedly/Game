@@ -1539,6 +1539,7 @@ MonoBehaviour:
   attacking: 0
   isDying: 0
   isTakingDamage: 0
+  type: Normal
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}

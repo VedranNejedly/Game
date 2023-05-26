@@ -14,10 +14,16 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float jumpHeight = 3f;
     Vector3 velocity;
+    public bool isVisionImpared = false;
+    public Camera cam;
+
 
 
     private float timer = 0f;
     private float timeToUnfreeze = 5.0f;
+
+    float timerToFixVision;
+    public float VisionTimer = 5.0f;
     public bool frozen = false;
 
 
@@ -66,6 +72,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+         if(isVisionImpared){
+            if(timerToFixVision <= 0){
+                cam.fieldOfView = 60;
+                isVisionImpared = false;
+            }else{
+                timerToFixVision -= Time.deltaTime;
+            }
+        }
+
     }
 
 
@@ -100,4 +115,14 @@ public class PlayerMovement : MonoBehaviour
             frozen = true;
         }
     }
+
+    public void impareVision(){
+        timerToFixVision = VisionTimer;
+        if(!isVisionImpared){
+            cam.fieldOfView = 30;
+            isVisionImpared = true;
+        }
+
+    }
+
 }

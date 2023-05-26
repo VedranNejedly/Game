@@ -113,13 +113,20 @@ public class Enemy : MonoBehaviour
         // animator.SetBool("isChasing",false);
 
         if(!(playerBlocking.playerIsBlocking)){
-            PlayerHealth.updateHealth(-damage);
+            PlayerHealth.InflictDamage(damage);
             if(type == "Ice"){
                 playerMovement.isHitByFreezeEnemy();
             }
             if(type == "Poison"){
                 PlayerHealth.tickPoison();
             }
+            if(type == "Fire"){
+                PlayerHealth.setOnFire();
+            }
+            if(type == "Dark"){
+                playerMovement.impareVision();
+            }
+
         }
         enemyAlreadyAttacked = true;
         attacking = false;
