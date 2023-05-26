@@ -13,6 +13,7 @@ public class PlayerMagic : MonoBehaviour
     public bool canCastMagicCircle = true;
     public GameObject magicCircle;
     public GameObject magicCircleVisual;
+    public float magicCircleCooldown = 30.0f;
 
     private int magicCircleCounter = 0;
 
@@ -23,7 +24,6 @@ public class PlayerMagic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -54,14 +54,13 @@ public class PlayerMagic : MonoBehaviour
         magic.transform.Rotate(0,-90,0,Space.Self);
 
         magic.GetComponent<Rigidbody>().velocity = magicSpawnPoint.forward * magicSpeed;
-        StartCoroutine(StartCooldown());
+        canCast = false;
+        Invoke("StartCooldown",castCooldownInSeconds);
        
     }
 
 
-    public IEnumerator StartCooldown(){
-        canCast = false;
-        yield return new WaitForSeconds(castCooldownInSeconds);
+    public void StartCooldown(){
         canCast = true;
     }
 
@@ -78,7 +77,7 @@ public class PlayerMagic : MonoBehaviour
         Invoke("disableMagicCircle",4.0f);
         Invoke("castMagicCircle",4.01f);
         Invoke("disableMagicCircle",5.0f);
-        Invoke("enableCastingMagicCircle",30.0f);
+        Invoke("enableCastingMagicCircle",magicCircleCooldown);
 
 
     }

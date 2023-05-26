@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicCircle : MonoBehaviour
 {
+    public int magicCircleDamage = 1;
+
     // Start is called before the first frame update
     void Start()
     {

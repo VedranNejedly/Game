@@ -15,8 +15,8 @@ public class EffectsUI : MonoBehaviour
     public int[][] indexes = new int[2][];
 
 
-    int frozenIndex,poisonIndex;
-    bool isSetFrozenUI,playerIsPoisoned = false;
+    int frozenIndex,poisonIndex,burnIndex,visionIndex;
+    bool isSetFrozenUI,playerIsPoisoned,playerIsBurning,visionIsAffected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +84,53 @@ public class EffectsUI : MonoBehaviour
             indexes[1][poisonIndex] = 99; 
         }
 
+            // FIRE DAMAGE
+
+          if(player.GetComponent<PlayerHealth>().isBurning){
+            for(int i = 0;i<ImagesUI.Length;i++){
+                if(ImagesUItemp[i].sprite == null && playerIsBurning == false){
+                    ImagesUItemp[i].sprite = EffectsSprites[2];
+                    indexes[0][i] = i;
+                    indexes[1][i] = 3; 
+
+                    ImagesUI[i].GetComponent<Image>().enabled = true; 
+                    burnIndex = i;
+                    playerIsBurning = true;
+                }
+            }
+        }
+
+        if(player.GetComponent<PlayerHealth>().isBurning==false && playerIsBurning){
+            playerIsBurning = false;
+            ImagesUI[burnIndex].GetComponent<Image>().enabled = false; 
+            ImagesUItemp[burnIndex].sprite = null;    
+            indexes[0][burnIndex] = 99;
+            indexes[1][burnIndex] = 99; 
+        }
+
+        //VISION IMPARED
+        if(player.GetComponent<PlayerMovement>().isVisionImpared){
+            for(int i = 0;i<ImagesUI.Length;i++){
+                if(ImagesUItemp[i].sprite == null && visionIsAffected == false){
+                    ImagesUItemp[i].sprite = EffectsSprites[3];
+                    indexes[0][i] = i;
+                    indexes[1][i] = 4; 
+
+                    ImagesUI[i].GetComponent<Image>().enabled = true; 
+                    visionIndex = i;
+                    visionIsAffected = true;
+                }
+            }
+        }
+
+        if(player.GetComponent<PlayerMovement>().isVisionImpared==false && visionIsAffected){
+            visionIsAffected = false;
+            ImagesUI[visionIndex].GetComponent<Image>().enabled = false; 
+            ImagesUItemp[visionIndex].sprite = null;    
+            indexes[0][visionIndex] = 99;
+            indexes[1][visionIndex] = 99; 
+        }
+
         UpdateUI();
     }
 
@@ -120,6 +167,14 @@ public class EffectsUI : MonoBehaviour
                     if(typeValue==2){
                         ImagesUItemp[j].sprite = EffectsSprites[1];
                         poisonIndex = j;
+                    }
+                    if(typeValue==3){
+                        ImagesUItemp[j].sprite = EffectsSprites[2];
+                        burnIndex = j;
+                    }
+                    if(typeValue==4){
+                        ImagesUItemp[j].sprite = EffectsSprites[3];
+                        visionIndex = j;
                     }
 
                 }
