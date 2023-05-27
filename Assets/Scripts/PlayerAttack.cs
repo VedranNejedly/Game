@@ -38,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
             Attack();
         }
         if(attacking){
+            FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");
             timer += Time.deltaTime;
             if(timer>=timeToAttack){
                 timer=0;

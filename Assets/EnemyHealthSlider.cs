@@ -27,3 +27,5 @@ public class EnemyHealthSlider : MonoBehaviour
         enemyHealth.value = (float)enemy.health;
     }
 }
+
+

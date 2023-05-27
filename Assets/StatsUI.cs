@@ -26,19 +26,15 @@ public class StatsUI : MonoBehaviour
         PlayerHealth = player.GetComponent<PlayerHealth>();  
         playerMagic = player.GetComponent<PlayerMagic>();   
         esakc = player.GetComponent<EnemySpawnAndKillCount>();   
-
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if(Input.GetKeyDown(KeyCode.I)){
                 if(!statsUIisActive){
                     UpdateUIValues();
                     statsUI.SetActive(true);
                     statsUIisActive=true;
-
                 }else{
                     statsUI.SetActive(false);
                     statsUIisActive=false;
