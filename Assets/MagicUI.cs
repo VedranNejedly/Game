@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MagicUI : MonoBehaviour
 {
-
-
     public Slider magicAttackCooldown;
     public Slider magicFieldCooldown;
     private float attackMagicTimer;
@@ -19,10 +17,7 @@ public class MagicUI : MonoBehaviour
        playerMagic = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMagic>();
        magicAttackCooldown.maxValue = (float)playerMagic.castCooldownInSeconds;
        magicFieldCooldown.maxValue = (float)playerMagic.magicCircleCooldown;
-
-        
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -36,15 +31,9 @@ public class MagicUI : MonoBehaviour
         if(!(playerMagic.canCastMagicCircle)){
             magicFieldTimer -=Time.deltaTime;
             magicFieldCooldown.value = magicFieldTimer;
-
-        }else{
+            }else{
             magicFieldCooldown.value = playerMagic.magicCircleCooldown;
             magicFieldTimer = magicFieldCooldown.maxValue;
-
-        }
-        // magicAttackCooldown.value = playerMagic.castCooldownInSeconds;
-        // magicFieldCooldown.value = playerMagic.magicCircleCooldown;
-
-        
+        }  
     }
 }
