@@ -50,10 +50,12 @@ public class PlayerMagic : MonoBehaviour
         if(!canCast){
             return;
         }
+        FindObjectOfType<AudioManager>().playSound("MagicAttack");  
         var magic  = Instantiate(magicPrefab,magicSpawnPoint.position,magicSpawnPoint.rotation);
         magic.transform.Rotate(0,-90,0,Space.Self);
 
         magic.GetComponent<Rigidbody>().velocity = magicSpawnPoint.forward * magicSpeed;
+        StartCoroutine(DestroyAfterSeconds(4.0f,magic));
         canCast = false;
         Invoke("StartCooldown",castCooldownInSeconds);
        
@@ -99,5 +101,13 @@ public class PlayerMagic : MonoBehaviour
     }
     private void enableCastingMagicCircle(){
         canCastMagicCircle = true;
+    }
+
+
+    public IEnumerator DestroyAfterSeconds(float time,GameObject magic){
+        yield return new WaitForSeconds(time);
+        FindObjectOfType<AudioManager>().stopSound("MagicAttack");  
+        Destroy(magic);
+
     }
 }

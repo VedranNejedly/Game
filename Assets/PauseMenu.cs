@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+[System.Serializable]
 public class PauseMenu : MonoBehaviour
 {
 

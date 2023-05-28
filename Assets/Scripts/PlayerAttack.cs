@@ -10,10 +10,15 @@ public class PlayerAttack : MonoBehaviour
     public int magicDamage = 5;
     public bool lifestealOnHit=false;
     public bool companionDamageBoost = false;
+    public bool enemyIsInRange = false;
+    public EnemySpawnAndKillCount esakc;
+
+
+    private float soundTimer = 0f;
 
 
     private bool attacking = false;
-    public float timeToAttack = 0.25f;
+    public float timeToAttack = 0.5f;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start(){
@@ -33,12 +38,31 @@ public class PlayerAttack : MonoBehaviour
 
     //Update is called once per frame
     void Update()
-    {
+    {   
+
+        if(soundTimer>=0){
+            soundTimer-=Time.deltaTime;
+        }
+        
         if (Input.GetMouseButtonDown(0)){
             Attack();
         }
+        
         if(attacking){
-            FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");
+            if(enemyIsInRange && soundTimer<0 && !esakc.checkIfAllKilled()){
+                FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
+                enemyIsInRange = false;
+                soundTimer=1.0f;
+
+            }
+            if(!enemyIsInRange && soundTimer<0){
+                FindObjectOfType<AudioManager>().playSound("SwordSwingNoHit");
+                soundTimer=1.0f;
+
+
+            }
+                // FindObjectOfType<AudioManager>().playSound("SwordSwingNoHit");
+                // FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
             timer += Time.deltaTime;
             if(timer>=timeToAttack){
                 timer=0;
@@ -50,6 +74,22 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter(Collider other){
+        if(other.tag=="Enemy"){
+            enemyIsInRange = true;
+            }
+        }
+    private void OnTriggerStay(Collider other){
+        if(other.tag=="Enemy"){
+            enemyIsInRange = true;
+            }
+        }
+    private void OnTriggerExit(Collider other){
+        if(other.tag=="Enemy"){
+            enemyIsInRange = false;
+            }
+        }
 
     //ITEMS EFFECTS CODE
 

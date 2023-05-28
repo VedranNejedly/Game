@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     PlayerHealth PlayerHealth;
     PlayerBlock playerBlocking;
     PlayerMovement playerMovement;
+    PlayerAttack playerAttack;
 
     // public Animator animator;
     public int health = 10;
@@ -39,6 +40,8 @@ public class Enemy : MonoBehaviour
         PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerBlocking = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBlock>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+
 
 
 
@@ -79,6 +82,7 @@ public class Enemy : MonoBehaviour
             nav.SetDestination(transform.position);
             isDying = true;
             GetComponent<Collider>().enabled = false;
+            playerAttack.enemyIsInRange = false;
             Invoke("destoryEnemy",2.0f);
             // Destroy(gameObject);
         }

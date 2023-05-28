@@ -72,8 +72,17 @@ public class PlayerHealth : MonoBehaviour
         if(isPoisoned){
             if(timerForPoison <= 0){
                 isPoisoned = false;
+                FindObjectOfType<AudioManager>().stopSound("Cough");
             }else{
                 timerForPoison -= Time.deltaTime;
+            }
+        }
+
+        if(isBurning){
+            if(timerForBurn <=0){
+                isBurning = false;
+            }else{
+                timerForBurn -= Time.deltaTime;
             }
         }
     }
@@ -81,6 +90,7 @@ public class PlayerHealth : MonoBehaviour
     public void tickPoison(){
         timerForPoison = poisonTimer;
         if(!isPoisoned){
+            FindObjectOfType<AudioManager>().playSound("Cough");
             timerForPoison = poisonTimer;
             health -= 1;
             isPoisoned = true;
@@ -88,7 +98,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void setOnFire(){
-        Debug.Log("I am burning");
-        isBurning =true;
+        timerForBurn = burnTimer;
+        if(!isBurning){
+            isBurning =true;
+            timerForBurn = burnTimer;
+
+        }
     }
 }

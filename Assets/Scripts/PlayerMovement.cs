@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private float timer = 0f;
     private float timeToUnfreeze = 5.0f;
 
+    private float soundTimer = 0f;
+    private bool canPlay = true;
+
     float timerToFixVision;
     public float VisionTimer = 5.0f;
     public bool frozen = false;
@@ -48,9 +51,21 @@ public class PlayerMovement : MonoBehaviour
         //Provjeri da li se igrač kreće po bilo kojoj osi, ukoliko da pokreni prikladnu animaciju
         if(move != Vector3.zero){
             animator.SetBool("isMoving",true);
+            if(soundTimer <= FindObjectOfType<AudioManager>().getSoundLength("Walking")){
+                if(canPlay){
+                    FindObjectOfType<AudioManager>().playSound("Walking");  
+                }
+                soundTimer += Time.deltaTime;
+                canPlay=false;
+            }
+
         }   
         else{
             animator.SetBool("isMoving",false);
+            FindObjectOfType<AudioManager>().stopSound("Walking");  
+            soundTimer = 0f;
+            canPlay=true;
+
         }
         controller.Move(move * movementSpeed * Time.deltaTime);
 
