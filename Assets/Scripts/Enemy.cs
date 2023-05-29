@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
             return;
         }
         attacking = true;
-        audioSource.Play();
+        FindObjectOfType<AudioManager>().playSound("EnemyRoar");
         // animator.SetBool("isAttacking",true);
         // animator.SetBool("isChasing",false);
 
