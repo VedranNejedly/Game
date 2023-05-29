@@ -6,7 +6,6 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public PauseMenu pauseMenu;
-    public AudioMixerGroup amg;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,9 +18,12 @@ public class AudioManager : MonoBehaviour
             s.soundLength = s.clip.length;
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
-
     }
- void Update()
+
+    void Start(){
+        this.playSound("BackgroundMusic");
+    }
+    void Update()
     {      
         if(pauseMenu.gameIsPaused){
             pauseAllSound();
