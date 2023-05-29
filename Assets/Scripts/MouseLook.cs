@@ -27,7 +27,7 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseYAxis;
         // Rotacija može biti maksimalno -90 stupnjeva i 90 stupnjeva kako kamera se ne bi okrenula kroz igraca.
         // Igrac moze pogledati u nebo i pod ali ne i kroz sebe.
-        xRotation = Mathf.Clamp(xRotation,-90f,90f);
+        xRotation = Mathf.Clamp(xRotation,-90f,30f);
 
         transform.localRotation = Quaternion.Euler(xRotation,0f,0f);
         //Rotacija objekta na x osi

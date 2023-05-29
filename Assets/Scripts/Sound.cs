@@ -16,5 +16,6 @@ public class Sound
     public bool loop;
     public float soundLength;
     public AudioSource source;
+    public AudioMixerGroup mixerGroup;
 
 }
