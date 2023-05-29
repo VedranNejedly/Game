@@ -14,7 +14,6 @@ public class PlayerMagic : MonoBehaviour
     public GameObject magicCircle;
     public GameObject magicCircleVisual;
     public float magicCircleCooldown = 30.0f;
-
     private int magicCircleCounter = 0;
 
 
@@ -69,6 +68,7 @@ public class PlayerMagic : MonoBehaviour
 
     private void castMagicCircleCycle(){
         canCastMagicCircle = false;
+        FindObjectOfType<AudioManager>().playSound("FieldMagic");  
         castMagicCircle();
         Invoke("disableMagicCircle",1.0f);
         Invoke("castMagicCircle",1.01f);
@@ -97,11 +97,13 @@ public class PlayerMagic : MonoBehaviour
         if(magicCircleCounter == 10){
             magicCircleVisual.SetActive(false);
             magicCircleCounter = 0;
+            FindObjectOfType<AudioManager>().stopSound("FieldMagic");
         }
     }
     private void enableCastingMagicCircle(){
         canCastMagicCircle = true;
     }
+
 
 
     public IEnumerator DestroyAfterSeconds(float time,GameObject magic){

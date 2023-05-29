@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public PauseMenu pauseMenu;
+    public AudioMixerGroup amg;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,7 +17,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.soundLength = s.clip.length;
-
+            s.source.outputAudioMixerGroup = s.mixerGroup;
         }
 
     }

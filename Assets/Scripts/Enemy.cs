@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
 
     public NavMeshAgent nav;
     public Transform player;
+    public AudioSource audioSource;
+
 
 
     public float attackCooldown = 3.0f;
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
 
+        audioSource = this.GetComponent<AudioSource>();
 
 
 
@@ -113,6 +116,7 @@ public class Enemy : MonoBehaviour
             return;
         }
         attacking = true;
+        audioSource.Play();
         // animator.SetBool("isAttacking",true);
         // animator.SetBool("isChasing",false);
 
