@@ -4052,6 +4052,10 @@ PrefabInstance:
       value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4344962602897745222, guid: ad4fc43efe8b5a5408aae96a28042bd0, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 210823392}
+    - target: {fileID: 4344962602897745222, guid: ad4fc43efe8b5a5408aae96a28042bd0, type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1632502805}
