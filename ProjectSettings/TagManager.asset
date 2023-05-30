@@ -13,6 +13,7 @@ TagManager:
   - EnemySpawner
   - NextLevelTrigger
   - ResetPoint
+  - ValueHolder
   layers:
   - Default
   - TransparentFX

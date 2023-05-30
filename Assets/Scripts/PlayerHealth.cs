@@ -20,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
     public PauseMenu pauseMenu;
 
 
-
     public void playerDie(){
         if(health<=0){
             deathScreen.SetActive(true);

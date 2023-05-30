@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isVisionImpared = false;
     public Camera cam;
 
+    public int val;
+
 
 
     private float timer = 0f;
@@ -29,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
     public float VisionTimer = 5.0f;
     public bool frozen = false;
 
+    void Awake(){
+        val = GameObject.FindGameObjectWithTag("ValueHolder").GetComponent<ValueHolder>().value;
+        Destroy(GameObject.FindGameObjectWithTag("ValueHolder"));
+    }
 
     // Start is called before the first frame update
     void Start()
