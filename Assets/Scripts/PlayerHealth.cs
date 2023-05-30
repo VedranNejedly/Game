@@ -16,11 +16,18 @@ public class PlayerHealth : MonoBehaviour
     private float burnTimer = 10.0f;
     private float timerForBurn;
 
+    public GameObject deathScreen;
+    public PauseMenu pauseMenu;
+
 
 
     public void playerDie(){
         if(health<=0){
-            Destroy(gameObject);
+            deathScreen.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            pauseMenu.gameIsPaused = true;
+            // Destroy(gameObject);
         }
     }
 
