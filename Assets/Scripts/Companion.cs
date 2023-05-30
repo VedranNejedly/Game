@@ -19,6 +19,8 @@ public class Companion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
         if(companionID==2){
             player.GetComponent<PlayerMovement>().updateMovementSpeed(5);
         }
