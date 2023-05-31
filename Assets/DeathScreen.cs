@@ -8,8 +8,10 @@ public class DeathScreen : MonoBehaviour
 {
     PauseMenu pauseMenu;
     public void RestartGame(){
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
         //Load next scene in the build manager
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
+
 }
