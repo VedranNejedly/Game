@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] door;
     EnemySpawnAndKillCount esakc;
     public bool bossRoom = false;
+    public bool isItemRoom = false;
     private RoomTemplates templates;
 
     // Start is called before the first frame update
@@ -36,33 +37,39 @@ public class EnemySpawner : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
-            if(wasInRoom){
-                return;
-            }
-            wasInRoom=true;
-            for(int i =0;i<door.Length;i++){
-                door[i].SetActive(true);
-            }
-            if(!bossRoom){
-                esakc.spawnCount(randomRoll);
-                for(int i=0;i<randomRoll;i++){
-                    rand=Random.Range(0,enemyList.enemyList.Length);
-                    Instantiate(enemyList.enemyList[rand], transform.position,Quaternion.identity);
+            if(!isItemRoom){
+                if(wasInRoom){
+                    return;
+                }
+                wasInRoom=true;
+                for(int i =0;i<door.Length;i++){
+                    door[i].SetActive(true);
+                }
+                if(!bossRoom){
+                    esakc.spawnCount(randomRoll);
+                    for(int i=0;i<randomRoll;i++){
+                        rand=Random.Range(0,enemyList.enemyList.Length);
+                        Instantiate(enemyList.enemyList[rand], transform.position,Quaternion.identity);
+
+                    }
+                }else{
+                    //Create boss and next level trigger.
+                    esakc.spawnCount(1);
+                    Instantiate(templates.boss,transform.position,Quaternion.identity);
+                    Instantiate(templates.nextLevelTrigger,transform.position,Quaternion.identity);
 
                 }
-            }else{
-                //Create boss and next level trigger.
-                esakc.spawnCount(1);
-                Instantiate(templates.boss,transform.position,Quaternion.identity);
-                Instantiate(templates.nextLevelTrigger,transform.position,Quaternion.identity);
-
             }
+            
 
         }
     }
 
     public void setBoss(){
         bossRoom=true;
+    }
+    public void setItemRoom(){
+        isItemRoom = true;
     }
 
 }

@@ -103,6 +103,7 @@ public class Enemy : MonoBehaviour
 
 
     private void ChasePlayer(){
+        attacking = false;
         nav.SetDestination(player.position);
         // animator.SetBool("isChasing",true);
 
