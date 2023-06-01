@@ -15,7 +15,9 @@ public class RoomTemplates : MonoBehaviour
     public GameObject boss;
     public GameObject nextLevelTrigger;
     public GameObject[] items;
-    // bool itemSpawned = false;
+    bool itemSpawned = false;
+    private int rand;
+    int randomRoom;
     EnemySpawner enemySpawner;
 
     void Update(){  
@@ -28,6 +30,14 @@ public class RoomTemplates : MonoBehaviour
                         enemySpawner.setBoss();
                     }
                 }
+            }
+            if(itemSpawned == false){
+                int rC = rooms.Count - 2;
+                rand=Random.Range(0,rC);
+                enemySpawner = rooms[rand].GetComponentInChildren<EnemySpawner>();
+                Instantiate(items[Random.Range(0,items.Length)],rooms[rand].transform.position,Quaternion.identity);
+                itemSpawned=true;
+                enemySpawner.setItemRoom();
             }
         }
         else{
