@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     public bool isItemRoom = false;
     private RoomTemplates templates;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(esakc.checkIfAllKilled()){
-            for(int i =0;i<door.Length;i++){
-                door[i].SetActive(false); 
+        if(esakc.checkIfAllKilled() && wasInRoom){
+        for(int i =0;i<door.Length;i++){
+                door[i].GetComponent<DoorAnimatorController>().doorIsClosing = true;
             }
+            Invoke("OpenDoors",0.4f);
         }
     }
 
@@ -44,6 +47,8 @@ public class EnemySpawner : MonoBehaviour
                 wasInRoom=true;
                 for(int i =0;i<door.Length;i++){
                     door[i].SetActive(true);
+                    FindObjectOfType<AudioManager>().playSound("DoorSlide");
+
                 }
                 if(!bossRoom){
                     esakc.spawnCount(randomRoll);
@@ -70,6 +75,11 @@ public class EnemySpawner : MonoBehaviour
     }
     public void setItemRoom(){
         isItemRoom = true;
+    }
+    private void OpenDoors(){
+        for(int i =0;i<door.Length;i++){
+                door[i].SetActive(false); 
+            }
     }
 
 }
