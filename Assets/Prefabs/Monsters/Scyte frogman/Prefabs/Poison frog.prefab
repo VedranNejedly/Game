@@ -1582,10 +1582,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   attackCooldown: 3
   enemyAlreadyAttacked: 0
-  sightRange: 0
-  attackRange: 0
-  playerInSight: 0
-  playerInAttackRange: 0
 --- !u!65 &1818990146015697345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1613,8 +1609,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1 &1500997988623485411
 GameObject:
   m_ObjectHideFlags: 0
