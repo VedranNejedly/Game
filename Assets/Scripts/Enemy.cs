@@ -33,8 +33,6 @@ public class Enemy : MonoBehaviour
     public float attackCooldown = 3.0f;
     public bool enemyAlreadyAttacked = false;
 
-    public float sightRange,attackRange;
-    public bool playerInSight, playerInAttackRange;
 
     void Start(){
         esakc = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawnAndKillCount>();
@@ -52,19 +50,11 @@ public class Enemy : MonoBehaviour
     }
 
     void Update(){
-        // //If player is in sight and in attack range
-        // playerInAttackRange=Physics.CheckSphere(transform.position,attackRange,whatIsPlayer);
-        // playerInSight=Physics.CheckSphere(transform.position,sightRange,whatIsPlayer);
-    
-        // if(playerInSight && !playerInAttackRange){
+
             if(isChasing && !isDying){
                 ChasePlayer();
             }
-    // }
-        // if(playerInAttackRange && playerInSight){
-        //     AttackPlayer();
-        // }
-    
+
     }
 
     public void Damage(int damage){
@@ -118,8 +108,6 @@ public class Enemy : MonoBehaviour
         }
         attacking = true;
         FindObjectOfType<AudioManager>().playSound("EnemyRoar");
-        // animator.SetBool("isAttacking",true);
-        // animator.SetBool("isChasing",false);
 
         if(!(playerBlocking.playerIsBlocking)){
             PlayerHealth.InflictDamage(damage);
@@ -139,19 +127,34 @@ public class Enemy : MonoBehaviour
         }
         enemyAlreadyAttacked = true;
         attacking = false;
-        Invoke("ResetAttack",1.0f);
+        Invoke("ResetAttack",1.5f);
         // StartCoroutine(ResetAttack());
     }
 
 
     private void ResetAttack(){
         enemyAlreadyAttacked = false;
-        attacking = true;
+        // attacking = false;
     }
 
  
 
-    private void OnTriggerEnter(Collider other){
+    // private void OnTriggerEnter(Collider other){
+    //     if(other.gameObject.tag=="Player"){
+    //         AttackPlayer();
+    //     }
+
+    //     if(other.gameObject.tag == "Enemy"){
+    //         var magnitude = 50;
+    //     // calculate force vector
+    //         var force = transform.position - other.transform.position;
+    //     // normalize force vector to get direction only and trim magnitude
+    //         force.Normalize();
+    //         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+    //     }
+    // }
+
+     private void OnCollisionEnter(Collision other){
         if(other.gameObject.tag=="Player"){
             AttackPlayer();
         }
@@ -166,14 +169,38 @@ public class Enemy : MonoBehaviour
         }
     }
 
-     private void OnTriggerExit(Collider other){
+    //  private void OnTriggerExit(Collider other){
+    //     if(other.gameObject.tag=="Player"){
+    //         attacking = false;
+    //         isChasing = true;
+    //     }
+    // }
+
+    
+     private void OnCollisionExit(Collision other){
         if(other.gameObject.tag=="Player"){
             attacking = false;
             isChasing = true;
         }
     }
 
-    private void OnTriggerStay(Collider other){
+
+    // private void OnTriggerStay(Collider other){
+    //     if(other.gameObject.tag=="Player"){
+    //         attacking = true;
+    //         AttackPlayer();
+    //         }
+    //         if(other.gameObject.tag == "Enemy"){
+    //         var magnitude = 50;
+    //     // calculate force vector
+    //         var force = transform.position - other.transform.position;
+    //     // normalize force vector to get direction only and trim magnitude
+    //         force.Normalize();
+    //         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+    //     }
+    // }
+
+        private void OnCollisionStay(Collision other){
         if(other.gameObject.tag=="Player"){
             attacking = true;
             AttackPlayer();
