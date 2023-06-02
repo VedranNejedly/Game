@@ -13,6 +13,7 @@ public class TriggerNextLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         controller = player.GetComponent<CharacterController>();
     }
 
@@ -26,15 +27,16 @@ public class TriggerNextLevel : MonoBehaviour
         nextLevelTrigger = true;
     }
 
-    // private void OnTriggerEnter(Collider other){
-    //     if(other.gameObject.tag=="Player"){
-    //         if(nextLevelTrigger){
-    //             // Invoke("loadNextScene",3.0f);
-    //         }
-    //     }
-    // }
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag=="Player"){
+            if(nextLevelTrigger){
+                loadNextScene();
+            }
+        }
+    }
     
     void loadNextScene(){
+        FindObjectOfType<AudioManager>().stopSound("TrapSlide");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
     }
 
