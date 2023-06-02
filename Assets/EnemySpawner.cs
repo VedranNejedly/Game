@@ -61,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
                     //Create boss and next level trigger.
                     esakc.spawnCount(1);
                     Instantiate(templates.boss,transform.position,Quaternion.identity);
-                    Instantiate(templates.nextLevelTrigger,transform.position,Quaternion.identity);
+                    Instantiate(templates.nextLevelTrigger,new Vector3(transform.position.x,2,transform.position.z),Quaternion.identity);
 
                 }
             }
