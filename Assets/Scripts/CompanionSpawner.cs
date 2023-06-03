@@ -9,14 +9,17 @@ public class CompanionSpawner : MonoBehaviour
     public GameObject[] companions;
 
     void Awake(){
-        // val = GameObject.FindGameObjectWithTag("ValueHolder").GetComponent<ValueHolder>().value;
-        // Destroy(GameObject.FindGameObjectWithTag("ValueHolder"));
+        if(GameObject.FindGameObjectWithTag("ValueHolder") != null){
+            val = GameObject.FindGameObjectWithTag("ValueHolder").GetComponent<ValueHolder>().value;
+            Destroy(GameObject.FindGameObjectWithTag("ValueHolder"));
+        }
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        // Instantiate(companions[val],transform.position,companions[val].transform.rotation);
-        // Destroy(this);
+        Instantiate(companions[val],transform.position,companions[val].transform.rotation);
+        Destroy(this);
     }
 
     // Update is called once per frame

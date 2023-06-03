@@ -24,6 +24,9 @@
 /[Aa]ssets/Painted/
 /[Aa]ssets/Hovl Studio/
 /[Aa]ssets/FourEvilDragonsHP/
+/[Aa]ssets/TAZO_3D_C/
+/[Aa]ssets/Assets_AngryLog/
+/[Aa]ssets/amusedART/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

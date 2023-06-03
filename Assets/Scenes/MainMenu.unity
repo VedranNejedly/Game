@@ -600,6 +600,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 805004592841170732, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 805004592841170732, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646125670229155161, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646125670229155161, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319808244583702468, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7b3cc79d9f4ef049ba1317068f61c11, type: 3}
+    - target: {fileID: 2356229230356277320, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1ee71a2aa1b9ae4589a7192a25a27fa, type: 3}
     - target: {fileID: 4280499093439342025, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -620,10 +644,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5979586633202099960, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979586633202099960, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6506396322117231879, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7680317119062456251, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46bc77f790ce5e6438364a8783eda9aa, type: 3}
     - target: {fileID: 7932739499869494170, guid: 5446997e23fcdc442a30a70c66abb077, type: 3}
       propertyPath: val
       value: 
