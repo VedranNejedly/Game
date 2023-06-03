@@ -45,7 +45,9 @@ public class PlayerAttack : MonoBehaviour
         }
         
         if (Input.GetMouseButtonDown(0)){
-            Attack();
+            if(!(this.GetComponent<PlayerBlock>().playerIsBlocking)){
+                Attack();
+            }
         }
         
         if(attacking){

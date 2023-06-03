@@ -805,7 +805,7 @@ MonoBehaviour:
   wasInRoom: 0
   door:
   - {fileID: 2827591144749247428}
-  - {fileID: 0}
+  - {fileID: 5386970364082660114}
   bossRoom: 0
   isItemRoom: 0
 --- !u!1 &7927944494506384688
