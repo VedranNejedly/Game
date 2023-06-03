@@ -13,7 +13,7 @@ public class MagicDamage : MonoBehaviour
             Enemy enemyHealth = other.GetComponent<Enemy>();
             // explosion.SetActive(true);
             if(enemyHealth != null){
-                enemyHealth.Damage(magicDamage);
+                enemyHealth.TakeMagicDamage(magicDamage);
             }
             StartCoroutine(DestroyGameObject(0.25f));
         }

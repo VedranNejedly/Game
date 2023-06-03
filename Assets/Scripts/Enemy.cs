@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviour
     public bool isDying = false;
     public bool isTakingDamage = false;
     public string type = "Normal";
+    private bool canBeEnraged = false;
+    private bool enraged = false;
+    private bool takeReducedDamage = false;
 
     public bool isChasing = true;
 
@@ -33,6 +36,11 @@ public class Enemy : MonoBehaviour
     public float attackCooldown = 3.0f;
     public bool enemyAlreadyAttacked = false;
 
+    void Awake(){
+        if(isBoss || type=="Dragon" || type == "OrcBreserker"){
+            canBeEnraged = true;
+        }
+    }
 
     void Start(){
         esakc = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawnAndKillCount>();
@@ -58,12 +66,30 @@ public class Enemy : MonoBehaviour
     }
 
     public void Damage(int damage){
+        if(takeReducedDamage){
+            damage=damage/2;
+        }
+        health = health - damage;
+        isTakingDamage = true;
+        CheckHealth();
+    }
+
+    public void TakeMagicDamage(int damage){
+        if(type=="Dragon" || type=="ThickSkinned"){
+            return;
+        }
+        damage = damage/2;
         health = health - damage;
         isTakingDamage = true;
         CheckHealth();
     }
     
     private void CheckHealth(){
+        if(canBeEnraged && health <50 && !enraged){
+            enraged = true;
+            damage = damage*2;
+            takeReducedDamage = true;
+        }
         if(health<=0){
             if(isBoss){
                 bossIsDead = true;
@@ -75,7 +101,7 @@ public class Enemy : MonoBehaviour
             nav.SetDestination(transform.position);
             isDying = true;
             GetComponent<Collider>().enabled = false;
-            playerAttack.enemyIsInRange = false;
+            // playerAttack.enemyIsInRange = false;
             Invoke("destoryEnemy",2.0f);
             // Destroy(gameObject);
         }
