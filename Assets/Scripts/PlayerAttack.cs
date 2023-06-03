@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public int magicDamage = 5;
     public bool lifestealOnHit=false;
     public bool companionDamageBoost = false;
-    public bool enemyIsInRange = false;
+    // public bool enemyIsInRange = false;
     public EnemySpawnAndKillCount esakc;
 
 
@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
 
     private bool attacking = false;
-    public float timeToAttack = 0.5f;
+    public float timeToAttack = 1.0f;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start(){
@@ -28,9 +28,12 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
+
     private void Attack(){
         attacking=true;
-        attackArea.SetActive(true);
+        // attackArea.SetActive(true);
+        attackArea.GetComponent<BoxCollider>().enabled = true;
+
         animator.SetBool("isAttacking",true);
 
     }
@@ -51,47 +54,68 @@ public class PlayerAttack : MonoBehaviour
         }
         
         if(attacking){
-            if(enemyIsInRange && soundTimer<0 && !esakc.checkIfAllKilled()){
-                FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
-                enemyIsInRange = false;
-                soundTimer=1.0f;
+            // if(enemyIsInRange && soundTimer<0 && !esakc.checkIfAllKilled()){
+                // FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
+                // enemyIsInRange = false;
+                // soundTimer=1.0f;
 
-            }
-            if(!enemyIsInRange && soundTimer<0){
-                FindObjectOfType<AudioManager>().playSound("SwordSwingNoHit");
-                soundTimer=1.0f;
+            // }
+            // if(!enemyIsInRange && soundTimer<0){
+                // FindObjectOfType<AudioManager>().playSound("SwordSwingNoHit");
+                // soundTimer=1.0f;
 
 
-            }
+            // }
                 // FindObjectOfType<AudioManager>().playSound("SwordSwingNoHit");
                 // FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
             timer += Time.deltaTime;
             if(timer>=timeToAttack){
                 timer=0;
                 attacking=false;
-                attackArea.SetActive(false);
+                attackArea.GetComponent<BoxCollider>().enabled= false;
+
+                // attackArea.SetActive(false);
                 animator.SetBool("isAttacking",false);
 
             }
         }
     }
 
+    
 
-    private void OnTriggerEnter(Collider other){
-        if(other.tag=="Enemy"){
-            enemyIsInRange = true;
-            }
-        }
-    private void OnTriggerStay(Collider other){
-        if(other.tag=="Enemy"){
-            enemyIsInRange = true;
-            }
-        }
-    private void OnTriggerExit(Collider other){
-        if(other.tag=="Enemy"){
-            enemyIsInRange = false;
-            }
-        }
+
+    // private void OnCollisionEnter(Collision other){
+    //     if(other.gameObject.tag=="Enemy"){
+    //         enemyIsInRange = true;
+    //         }
+    // }
+
+    // private void OnCollisionStay(Collision other){
+    //   if(other.gameObject.tag=="Enemy"){
+    //         enemyIsInRange = true;
+    //         }
+    // }
+    //   private void OnCollisionExit(Collision other){
+    //   if(other.gameObject.tag=="Enemy"){
+    //         enemyIsInRange = false;
+    //         }
+    // }
+
+    // private void OnTriggerEnter(Collider other){
+    //     if(other.tag=="Enemy"){
+    //         enemyIsInRange = true;
+    //         }
+    //     }
+    // private void OnTriggerStay(Collider other){
+    //     if(other.tag=="Enemy"){
+    //         enemyIsInRange = true;
+    //         }
+    //     }
+    // private void OnTriggerExit(Collider other){
+    //     if(other.tag=="Enemy"){
+    //         enemyIsInRange = false;
+    //         }
+    //     }
 
     //ITEMS EFFECTS CODE
 

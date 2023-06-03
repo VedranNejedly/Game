@@ -76,7 +76,7 @@ public class Companion : MonoBehaviour
                 magicCircleIsActive=true;
                 if(canTick){
                     canTick = false;
-                    other.gameObject.GetComponent<Enemy>().Damage(companionMagicDamage);
+                    other.gameObject.GetComponent<Enemy>().TakeMagicDamage(companionMagicDamage);
                     timer = 0;
                 }else{
                     timer+=Time.deltaTime;
