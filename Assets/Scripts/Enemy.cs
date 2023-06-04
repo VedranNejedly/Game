@@ -24,6 +24,15 @@ public class Enemy : MonoBehaviour
     private bool canBeEnraged = false;
     private bool enraged = false;
     private bool takeReducedDamage = false;
+    private bool isATraitor = false;
+    private float traitorTimer = 0f;
+
+    private bool onFire = false;
+    private float fireTickTime = 2.0f;
+    private float fireTickTimer = 2.0f;
+    private bool killed = false;
+
+    public GameObject fire;
 
     public bool isChasing = true;
 
@@ -58,9 +67,20 @@ public class Enemy : MonoBehaviour
     }
 
     void Update(){
-
+            if(isATraitor && traitorTimer >0){
+                traitorTimer-=Time.deltaTime;
+            }
             if(isChasing && !isDying){
                 ChasePlayer();
+            }
+            if(onFire){
+                if(fireTickTimer <0){
+                Damage(1);
+                fireTickTimer = fireTickTime;
+                }else{
+                    fireTickTimer -= Time.deltaTime;
+                }
+                
             }
 
     }
@@ -96,8 +116,11 @@ public class Enemy : MonoBehaviour
                 tnl = GameObject.FindGameObjectWithTag("NextLevelTrigger").GetComponent<TriggerNextLevel>();
                 tnl.canTriggerNextLevel();
             }
+            if(!killed){
+                esakc.killCount();
+                killed = true;
+            }
             // Invoke("deathAnimation", 2.0f);
-            esakc.killCount();
             nav.SetDestination(transform.position);
             isDying = true;
             GetComponent<Collider>().enabled = false;
@@ -164,7 +187,14 @@ public class Enemy : MonoBehaviour
     }
 
  
+    public void SetOnFire(){
+        onFire = true;
+        fire.SetActive(true);
+    }
 
+    public void BecomeATraitor(){
+        isATraitor = true;
+    }
     // private void OnTriggerEnter(Collider other){
     //     if(other.gameObject.tag=="Player"){
     //         AttackPlayer();
@@ -186,7 +216,14 @@ public class Enemy : MonoBehaviour
         }
 
         if(other.gameObject.tag == "Enemy"){
-            var magnitude = 50;
+            if(isATraitor && traitorTimer <=0){
+                Debug.Log("SUIIII");
+                other.gameObject.GetComponent<Enemy>().Damage(1);
+                damage+=2;
+                traitorTimer = 4.0f;
+
+            }
+            var magnitude = 100;
         // calculate force vector
             var force = transform.position - other.transform.position;
         // normalize force vector to get direction only and trim magnitude
@@ -231,8 +268,14 @@ public class Enemy : MonoBehaviour
             attacking = true;
             AttackPlayer();
             }
-            if(other.gameObject.tag == "Enemy"){
-            var magnitude = 50;
+
+        if(other.gameObject.tag == "Enemy"){
+            if(isATraitor && traitorTimer <=0){
+                other.gameObject.GetComponent<Enemy>().Damage(1);
+                damage+=2;
+                traitorTimer = 4.0f;
+            }
+            var magnitude = 100;
         // calculate force vector
             var force = transform.position - other.transform.position;
         // normalize force vector to get direction only and trim magnitude

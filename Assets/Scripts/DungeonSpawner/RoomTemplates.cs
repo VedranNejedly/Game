@@ -35,7 +35,8 @@ public class RoomTemplates : MonoBehaviour
                 int rC = rooms.Count - 2;
                 rand=Random.Range(0,rC);
                 enemySpawner = rooms[rand].GetComponentInChildren<EnemySpawner>();
-                Instantiate(items[Random.Range(0,items.Length)],rooms[rand].transform.position,Quaternion.identity);
+                Vector3 newPos = new Vector3(rooms[rand].transform.position.x,2,rooms[rand].transform.position.z);
+                Instantiate(items[Random.Range(0,items.Length)],newPos,Quaternion.identity);
                 itemSpawned=true;
                 enemySpawner.setItemRoom();
             }

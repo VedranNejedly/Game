@@ -35,13 +35,19 @@ public class AttackArea : MonoBehaviour
                 FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
                 soundTimer = 1.0f;
             }
-            Enemy enemyHealth = other.GetComponent<Enemy>();
-            if(enemyHealth != null){
+            Enemy enemy = other.GetComponent<Enemy>();
+            if(enemy != null){
                 // health.Damage(damage);
-                enemyHealth.Damage(playerAttack.meeleDamage);
+                enemy.Damage(playerAttack.meeleDamage);
                 Debug.Log(playerAttack.meeleDamage);
                 if(playerAttack.lifestealOnHit){
                     playerHealth.updateHealth(1);
+                }
+                if(playerAttack.hasSwordOfTheHephaestus){
+                    enemy.SetOnFire();
+                }
+                if(playerAttack.hasSwordOfBetrayal){
+                    enemy.BecomeATraitor();
                 }
             }
 
