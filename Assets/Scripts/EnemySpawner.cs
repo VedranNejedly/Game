@@ -33,7 +33,8 @@ public class EnemySpawner : MonoBehaviour
         for(int i =0;i<door.Length;i++){
                 door[i].GetComponent<DoorAnimatorController>().doorIsClosing = true;
             }
-            Invoke("OpenDoors",0.4f);
+            
+            Invoke("OpenDoors",3.0f);
         }
     }
 

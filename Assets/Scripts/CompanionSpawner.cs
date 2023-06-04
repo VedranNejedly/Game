@@ -18,7 +18,7 @@ public class CompanionSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(companions[val],transform.position,companions[val].transform.rotation);
+        Instantiate(companions[val],new Vector3(transform.position.x,0,transform.position.z),companions[val].transform.rotation);
         Destroy(this);
     }
 
