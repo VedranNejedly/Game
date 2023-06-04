@@ -10,6 +10,10 @@ public class PlayerAttack : MonoBehaviour
     public int magicDamage = 5;
     public bool lifestealOnHit=false;
     public bool companionDamageBoost = false;
+    public bool hasSwordOfTheHephaestus = false;
+    public bool hasSwordOfBetrayal = false;
+
+    public GameObject fireOfTheHephaestus;
     // public bool enemyIsInRange = false;
     public EnemySpawnAndKillCount esakc;
 
@@ -137,6 +141,16 @@ public class PlayerAttack : MonoBehaviour
         magicDamage+=magicDamageMod;
     }
 
+
+    public void SwordOfTheHephaestus(){
+        //Fire sword
+        hasSwordOfTheHephaestus = true;
+        fireOfTheHephaestus.SetActive(true);
+    }
+
+    public void SwordOfBetrayal(){
+        hasSwordOfBetrayal = true;
+    }
 
     //COMPANION EFFECTS
 

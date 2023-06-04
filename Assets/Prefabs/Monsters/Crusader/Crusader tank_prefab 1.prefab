@@ -10002,6 +10002,7 @@ MonoBehaviour:
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  fire: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}

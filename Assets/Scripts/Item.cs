@@ -5,10 +5,10 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] public int maxHealthValue=0;
+    [SerializeField] public string itemName;
     [SerializeField] public int movementSpeedMod=0;
     [SerializeField] public int meeleAttackMod=0;
     [SerializeField] public int magicDamageMod=0;
-    [SerializeField] public bool isSwordOfTheCursed=false;
     [SerializeField] public bool lifeForceAbsorption = false;
     [SerializeField] public float magicCooldownRecution = 0;
 
@@ -19,6 +19,14 @@ public class Item : MonoBehaviour
         //AKo je gameObject igrac, dohvati komponentu PlayerHealth i uvecaj mu health za healthValue
          if(other.gameObject.tag=="Player"){
             //Update maxHealth igraca
+            if(itemName == "SwordOfTheHephaestus"){
+                other.gameObject.GetComponent<PlayerAttack>().SwordOfTheHephaestus();
+            }
+
+            if(itemName == "SwordOfBetrayal"){
+                other.gameObject.GetComponent<PlayerAttack>().SwordOfBetrayal();
+            }
+
             if(maxHealthValue>0){
                 other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(maxHealthValue);
             }
@@ -36,7 +44,7 @@ public class Item : MonoBehaviour
                 other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(magicCooldownRecution);
             }
             
-            if(isSwordOfTheCursed){
+            if(itemName == "SwordOfTheCursed"){
                 other.gameObject.GetComponent<PlayerHealth>().swordCurse();
                 other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(99);
             }
