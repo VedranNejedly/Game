@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     private bool isATraitor = false;
     private float traitorTimer = 0f;
 
+    public float speed = 5.0f;
+
     private bool onFire = false;
     private float fireTickTime = 2.0f;
     private float fireTickTimer = 2.0f;
@@ -66,6 +68,7 @@ public class Enemy : MonoBehaviour
 
 
         nav = GetComponent<NavMeshAgent>();
+        nav.speed = speed;
     }
 
     void Update(){
