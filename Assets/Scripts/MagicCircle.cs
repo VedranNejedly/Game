@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MagicCircle : MonoBehaviour
 {
-    public int magicCircleDamage = 1;
+    public int magicCircleDamage;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        magicCircleDamage = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().magicCircleDmg;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class MagicCircle : MonoBehaviour
             Enemy enemyHealth = other.GetComponent<Enemy>();
             if(enemyHealth != null){
                 // health.Damage(damage);
-                enemyHealth.Damage(1);
+                enemyHealth.Damage(magicCircleDamage);
             }
         }
     }

@@ -8,7 +8,7 @@ public class PlayerMagic : MonoBehaviour
     public Transform magicSpawnPoint;
     public GameObject magicPrefab;
     public float magicSpeed=10;
-    public float castCooldownInSeconds = 10f;
+    public float castCooldownInSeconds = 20f;
     public bool canCast = true;
     public bool canCastMagicCircle = true;
     public GameObject magicCircle;
@@ -43,12 +43,28 @@ public class PlayerMagic : MonoBehaviour
     }
 
     public void reduceCooldown(float cdReduction){
-        castCooldownInSeconds-=cdReduction;
+        if(!(castCooldownInSeconds-cdReduction < 10)){
+            castCooldownInSeconds-=cdReduction;
+        }else{
+            gameObject.GetComponent<PlayerAttack>().updateMagicDamage(10);
+        }
     }
+
+
+    public void reduceForceFieldCooldown(float cdReduction){
+        if(!(castCooldownInSeconds-cdReduction < 15)){
+            castCooldownInSeconds-=cdReduction;
+        }else{
+            gameObject.GetComponent<PlayerAttack>().updateCircleDamage(2);
+        }
+    }
+
+
     void castAttackMagic(){
         if(!canCast){
             return;
         }
+
         FindObjectOfType<AudioManager>().playSound("MagicAttack");  
         var magic  = Instantiate(magicPrefab,magicSpawnPoint.position,magicSpawnPoint.rotation);
         magic.transform.Rotate(0,-90,0,Space.Self);

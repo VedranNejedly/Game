@@ -38,6 +38,10 @@ public class AnimatorController : MonoBehaviour
                 playEnemyIsDamagedAnimation();
                 Invoke("stopEnemyIsDamagedAnimation",1.0f);
             }
+
+            if(enemy.idle){
+                playEnemyIsIdle();
+            }
         }
 
 
@@ -64,6 +68,9 @@ public class AnimatorController : MonoBehaviour
     }
     private void playEnemyIsDamagedAnimation(){
         animator.SetBool("isTakingDamage",true);
+    }
+    private void playEnemyIsIdle(){
+        animator.SetBool("isIdle",true);
     }
     private void stopEnemyIsDamagedAnimation(){
         enemy.isTakingDamage = false;
