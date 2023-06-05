@@ -80,6 +80,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void swordCurse(){
         health=1;
+        playerArmor = playerArmor/2;
+        maxPlayerArmor = maxPlayerArmor/2;
+        maxHealth = maxHealth/2;
     }
 
     public void antiTrapVest(){

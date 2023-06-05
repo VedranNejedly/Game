@@ -31,7 +31,11 @@
 /[Aa]ssets/Free HDR Skyboxes Pack/
 /[Aa]ssets/Real Stars Skybox/
 /[Aa]ssets/Free Burrow Cute Series/
-
+/[Aa]ssets/Survival Kit Lite/
+/[Aa]ssets/Viking Shields/
+/[Aa]ssets/Low-Poly Weapons/
+/[Aa]ssets/GraveyardProps/
+/[Aa]ssets/GeeKay3D/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

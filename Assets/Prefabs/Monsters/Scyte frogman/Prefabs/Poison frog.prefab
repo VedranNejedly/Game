@@ -1572,12 +1572,14 @@ MonoBehaviour:
   health: 10
   isBoss: 0
   bossIsDead: 0
-  damage: 5
+  damage: 1
   attacking: 0
   isDying: 0
   isTakingDamage: 0
   type: Poison
+  idle: 0
   fire: {fileID: 8214436488229920030}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}

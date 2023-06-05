@@ -4,116 +4,117 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // [SerializeField] public int maxHealthValue=0;
     [SerializeField] public string itemName;
-    // [SerializeField] public int movementSpeedMod=0;
-    // [SerializeField] public int meeleAttackMod=0;
-    // [SerializeField] public int magicDamageMod=0;
-    // [SerializeField] public bool lifeForceAbsorption = false;
-    // [SerializeField] public float magicCooldownRecution = 0;
-
-
-
     //Funkcija koja na koliziju s igracem dodijeli item vrijednost igraću
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerStay(Collider other){
         //AKo je gameObject igrac, dohvati komponentu PlayerHealth i uvecaj mu health za healthValue
-         if(other.gameObject.tag=="Player"){
-            //Update maxHealth igraca
-            if(itemName == "SwordOfTheHephaestus"){
-                other.gameObject.GetComponent<PlayerAttack>().SwordOfTheHephaestus();
-            }
+         if(Input.GetKeyDown(KeyCode.T)){
+            if(other.gameObject.tag=="Player"){
+                //Added item
 
-            if(itemName == "SwordOfBetrayal"){
-                other.gameObject.GetComponent<PlayerAttack>().SwordOfBetrayal();
-            }
+                if(itemName == "SwordOfTheHephaestus"){
+                    other.gameObject.GetComponent<PlayerAttack>().SwordOfTheHephaestus();
+                }
+                //Added item
 
-            if(itemName == "SwordOfTheCursed"){
-                other.gameObject.GetComponent<PlayerHealth>().swordCurse();
-                other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(99);
-            }
+                if(itemName == "SwordOfBetrayal"){
+                    other.gameObject.GetComponent<PlayerAttack>().SwordOfBetrayal();
+                }
+                //Added item
 
-            if(itemName == "ChildsPlaySword"){
-                 other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(2);
-            }
+                if(itemName == "SwordOfTheCursed"){
+                    other.gameObject.GetComponent<PlayerHealth>().swordCurse();
+                    other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(10);
+                }
+                //Added item
 
-            if(itemName=="antiTrapVest"){
-                other.gameObject.GetComponent<PlayerHealth>().antiTrapVest();
-            }
+                if(itemName == "ChildsPlaySword"){
+                    other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(2);
+                }
 
-            if(itemName == "SilverHelmet"){
-                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(5);
-                // other.gameObject.GetComponent<PlayerHealth>().upadateMaxArmor(10);
-            }
+                if(itemName=="antiTrapVest"){
+                    other.gameObject.GetComponent<PlayerHealth>().antiTrapVest();
+                }
+                //Added item
+                if(itemName == "SilverHelmet"){
+                    other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(5);
+                    // other.gameObject.GetComponent<PlayerHealth>().upadateMaxArmor(10);
+                }
+                //Added item
+                if(itemName == "Apple"){
+                    other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(20);
 
-            if(itemName == "Apple"){
-                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(20);
+                }
+                //Added items
+                if(itemName == "PotionOfStrength"){
+                    other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(5);
+                }
+                //Added item
+                if(itemName == "PotionOfMagicPower"){
+                    other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(5);
+                }
+                //Item added
+                if(itemName == "PotionOfCooldown"){
+                    other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(3);
+                }
 
-            }
+                if(itemName == "ForceFieldPower"){
+                    other.gameObject.GetComponent<PlayerAttack>().updateCircleDamage(3);
 
-            if(itemName == "PotionOfStrength"){
-                other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(5);
-            }
+                }
+                //Added item
+                if(itemName == "PotionOfMagicCircleCooldown"){
+                    other.gameObject.GetComponent<PlayerMagic>().reduceForceFieldCooldown(3);
 
-            if(itemName == "PotionOfMagicPower"){
-                other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(5);
-            }
+                }
+                //Added item
+                if(itemName == "PotionOfLifeForceAbsorption"){
+                    other.gameObject.GetComponent<PlayerAttack>().lifesteal();
+                }
+                //Added item
+                if(itemName == "MercyOfAGod"){
+                    other.gameObject.GetComponent<PlayerHealth>().MercyOfAGod();
+                }
 
-            if(itemName == "PotionOfCooldown"){
-                other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(3);
-            }
+                if(itemName == "BootsOfHermes"){
+                    other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(4);
+                }
+                //Added item
+                if(itemName == "ShieldOfBruised"){
+                    other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(10);
+                }
+                //Added item
+                if(itemName == "ShieldOfTheFallen"){
+                    other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(5);
+                }
+                //Added item
+                if(itemName == "ShieldOfTheWicked"){
+                    other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(20);
+                }
+                //Added item
+                if(itemName == "SupremeAidKit"){
+                    other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(20);
+                }
+                //Added item
+                
+                if(itemName == "BasicAidKit"){
+                    other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(5);
+                }
+                //Added item
+                if(itemName == "AdvancedAidKit"){
+                    other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(10);
+                }
 
-            if(itemName == "ForceFieldPower"){
-                other.gameObject.GetComponent<PlayerAttack>().updateCircleDamage(3);
+                if(itemName == "ForgeByBlood"){
+                    other.gameObject.GetComponent<PlayerHealth>().ForgeByBlood();
+                }
 
-            }
-            if(itemName == "ForceFieldCooldown"){
-                other.gameObject.GetComponent<PlayerMagic>().reduceForceFieldCooldown(3);
+                if(itemName == "BomberSpawner"){
+                    other.gameObject.GetComponent<PlayerAttack>().BomberSpawner();
+                }
 
+                Destroy(gameObject);
             }
-
-            if(itemName == "lifeForceAbsorption"){
-                other.gameObject.GetComponent<PlayerAttack>().lifesteal();
-            }
-
-            if(itemName == "MercyOfAGod"){
-                other.gameObject.GetComponent<PlayerHealth>().MercyOfAGod();
-            }
-
-            if(itemName == "BootsOfHermes"){
-                other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(4);
-            }
-            if(itemName == "ArmorOfTheFallen"){
-                other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(5);
-            }
-
-            if(itemName == "ArmorOfBruised"){
-                other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(10);
-            }
-
-            if(itemName == "ArmorOfTheWicked"){
-                other.gameObject.GetComponent<PlayerHealth>().UpdateMaxArmor(20);
-            }
-
-            if(itemName == "SupremeAidKit"){
-                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(20);
-            }
-            
-            if(itemName == "BasicAidKit"){
-                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(5);
-            }
-            if(itemName == "AdvancedAidKit"){
-                other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(10);
-            }
-
-            if(itemName == "ForgeByBlood"){
-                other.gameObject.GetComponent<PlayerHealth>().ForgeByBlood();
-            }
-
-            if(itemName == "BomberSpawner"){
-                other.gameObject.GetComponent<PlayerAttack>().BomberSpawner();
-
-            }
-            Destroy(gameObject);
          }
     }
 }
