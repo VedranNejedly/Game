@@ -16,8 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     public bool isVisionImpared = false;
     public Camera cam;
-
-
+    
 
 
     private float timer = 0f;
@@ -63,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
         }   
         else{
+      
+            
             animator.SetBool("isMoving",false);
             FindObjectOfType<AudioManager>().stopSound("Walking");  
             soundTimer = 0f;

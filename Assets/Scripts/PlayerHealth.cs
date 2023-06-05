@@ -11,6 +11,10 @@ public class PlayerHealth : MonoBehaviour
     public bool isPoisoned = false;
     private float poisonTimer = 10.0f;
     private float timerForPoison;
+    private bool mercyOfAGod;
+    private bool canForgeByBlood = false;
+
+    public bool hasAntiTrapVest = false;
 
     public bool isBurning = false;
     private float burnTimer = 10.0f;
@@ -40,7 +44,12 @@ public class PlayerHealth : MonoBehaviour
         if(health>maxHealth){
             health=maxHealth;
         }
-        if(health<=0){
+        if(health<=0 && mercyOfAGod){
+            mercyOfAGod = false;
+            health = maxHealth;
+            playerArmor = maxPlayerArmor/2;
+        }
+        if(health<=0 && !mercyOfAGod){
             playerDie();
         }
     }
@@ -72,8 +81,36 @@ public class PlayerHealth : MonoBehaviour
     public void swordCurse(){
         health=1;
     }
+
+    public void antiTrapVest(){
+        hasAntiTrapVest =true;
+    }
+
+    public void MercyOfAGod(){
+        mercyOfAGod = true;
+    }
+
+    public void ForgeByBlood(){
+        canForgeByBlood = true;
+    }
+
+    private void ForgeArmorByBlood(){
+        if(playerArmor < maxPlayerArmor && health>1){
+            playerArmor+=1;
+            health-=1;
+        }
+    }
+
     
     void Update(){
+
+        if(Input.GetKeyDown(KeyCode.X)){
+            if(canForgeByBlood){
+                ForgeArmorByBlood();
+                }
+            }
+
+
         playerDie();
         if(isPoisoned){
             if(timerForPoison <= 0){

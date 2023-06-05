@@ -31,8 +31,10 @@ public class Enemy : MonoBehaviour
     private float fireTickTime = 2.0f;
     private float fireTickTimer = 2.0f;
     private bool killed = false;
+    public bool idle = false;
 
     public GameObject fire;
+    public GameObject explosion;
 
     public bool isChasing = true;
 
@@ -116,7 +118,7 @@ public class Enemy : MonoBehaviour
                 tnl = GameObject.FindGameObjectWithTag("NextLevelTrigger").GetComponent<TriggerNextLevel>();
                 tnl.canTriggerNextLevel();
             }
-            if(!killed){
+            if(!killed && type!="Bomber"){
                 esakc.killCount();
                 killed = true;
             }
@@ -125,14 +127,14 @@ public class Enemy : MonoBehaviour
             isDying = true;
             GetComponent<Collider>().enabled = false;
             // playerAttack.enemyIsInRange = false;
-            Invoke("destoryEnemy",2.0f);
+            Invoke("destroyEnemy",2.0f);
             // Destroy(gameObject);
         }
         else{
             isTakingDamage = true;
         }
     }
-    private void destoryEnemy(){
+    private void destroyEnemy(){
         Destroy(gameObject);
     }
     // private void deathAnimation(){
@@ -195,6 +197,17 @@ public class Enemy : MonoBehaviour
     public void BecomeATraitor(){
         isATraitor = true;
     }
+    
+    public void Explode(){
+        explosion.SetActive(true);
+        esakc.killCount();
+        health=0;
+        isDying = true;
+        Invoke("destroyEnemy",1.0f);
+    }
+
+
+
     // private void OnTriggerEnter(Collider other){
     //     if(other.gameObject.tag=="Player"){
     //         AttackPlayer();
@@ -211,13 +224,18 @@ public class Enemy : MonoBehaviour
     // }
 
      private void OnCollisionEnter(Collision other){
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.tag=="Player" && type != "Bomber"){
             AttackPlayer();
         }
-
+        if(other.gameObject.tag=="Player" && type == "Bomber"){
+            nav.SetDestination(transform.position);
+            attacking = false;
+            isChasing = false;
+            idle = true;
+            Invoke("Explode",3.0f);
+        }
         if(other.gameObject.tag == "Enemy"){
             if(isATraitor && traitorTimer <=0){
-                Debug.Log("SUIIII");
                 other.gameObject.GetComponent<Enemy>().Damage(1);
                 damage+=2;
                 traitorTimer = 4.0f;
@@ -241,7 +259,7 @@ public class Enemy : MonoBehaviour
 
     
      private void OnCollisionExit(Collision other){
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.tag=="Player" && type != "Bomber"){
             attacking = false;
             isChasing = true;
         }
@@ -264,7 +282,7 @@ public class Enemy : MonoBehaviour
     // }
 
         private void OnCollisionStay(Collision other){
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.tag=="Player" && type !="Bomber"){
             attacking = true;
             AttackPlayer();
             }

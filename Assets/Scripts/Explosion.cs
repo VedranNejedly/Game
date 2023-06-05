@@ -12,7 +12,9 @@ public class Explosion : MonoBehaviour
     public void OnTriggerEnter(Collider other){
         if(other.tag=="Player" && softControl==0){
             ++softControl;
-            other.GetComponent<PlayerHealth>().InflictDamage(5);
+             if(other.GetComponent<PlayerHealth>().hasAntiTrapVest == false){
+                        other.GetComponent<PlayerHealth>().InflictDamage(5);
+                    }
         }
         if(other.tag=="Enemy"){
             other.GetComponent<Enemy>().Damage(5);

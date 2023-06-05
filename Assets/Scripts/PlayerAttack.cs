@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject attackArea;
     public int meeleDamage = 5;
     public int magicDamage = 5;
+    public int magicCircleDmg = 1;
     public bool lifestealOnHit=false;
     public bool companionDamageBoost = false;
     public bool hasSwordOfTheHephaestus = false;
@@ -139,6 +140,10 @@ public class PlayerAttack : MonoBehaviour
     //magicDamage varijabla se koristi za ranged napade odnosno fireball"
     public void updateMagicDamage(int magicDamageMod){
         magicDamage+=magicDamageMod;
+    }
+
+    public void updateCircleDamage(int damageMod){
+        magicCircleDmg+=damageMod;
     }
 
 
