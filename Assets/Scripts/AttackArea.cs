@@ -7,6 +7,7 @@ public class AttackArea : MonoBehaviour
     PlayerAttack playerAttack;
     PlayerHealth playerHealth;
     private bool enemyIsInRange = false;
+    public GameObject Bomber;
     List <GameObject> currentCollisions = new List <GameObject> ();
 
     private float soundTimer =0f;
@@ -30,6 +31,11 @@ public class AttackArea : MonoBehaviour
         enemyIsInRange = false;
         currentCollisions.Add (other.gameObject);
     
+        if(playerAttack.hasBomberSpawner){
+                    Debug.Log("I HAVE IT");
+                    SpawnBomber();
+                }
+
         if(other.tag=="Enemy" && currentCollisions.Contains(other.gameObject)){
             if(soundTimer<=0){
                 FindObjectOfType<AudioManager>().playSound("SwordSlashAndHit");  
@@ -49,6 +55,7 @@ public class AttackArea : MonoBehaviour
                 if(playerAttack.hasSwordOfBetrayal){
                     enemy.BecomeATraitor();
                 }
+              
             }
 
         }
@@ -64,6 +71,11 @@ public class AttackArea : MonoBehaviour
                 soundTimer = 1.0f;
             }
         }
+    }
+
+    private void SpawnBomber(){
+        Instantiate(Bomber,transform.position,Bomber.transform.rotation);
+
     }
 
 }

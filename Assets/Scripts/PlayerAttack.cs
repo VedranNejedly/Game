@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public bool companionDamageBoost = false;
     public bool hasSwordOfTheHephaestus = false;
     public bool hasSwordOfBetrayal = false;
+    public bool hasBomberSpawner = false;
 
     public GameObject fireOfTheHephaestus;
     // public bool enemyIsInRange = false;
@@ -155,6 +156,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void SwordOfBetrayal(){
         hasSwordOfBetrayal = true;
+    }
+
+    public void BomberSpawner(){
+        hasBomberSpawner = true;
     }
 
     //COMPANION EFFECTS
