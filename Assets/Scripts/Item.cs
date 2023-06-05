@@ -109,24 +109,10 @@ public class Item : MonoBehaviour
                 other.gameObject.GetComponent<PlayerHealth>().ForgeByBlood();
             }
 
-            // if(maxHealthValue>0){
-            //     other.gameObject.GetComponent<PlayerHealth>().upadateMaxHealth(maxHealthValue);
-            // }
-            // if(movementSpeedMod>0){
-            //     other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(movementSpeedMod);
-            // }
-            // if(meeleAttackMod>0){
-            //     other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(meeleAttackMod);
-            // }
-            // if(magicDamageMod>0){
-            //     other.gameObject.GetComponent<PlayerAttack>().updateMagicDamage(magicDamageMod);
-            // }
-            
-            // if(magicCooldownRecution>0){
-            //     other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(magicCooldownRecution);
-            // }
-            
+            if(itemName == "BomberSpawner"){
+                other.gameObject.GetComponent<PlayerAttack>().BomberSpawner();
 
+            }
             Destroy(gameObject);
          }
     }

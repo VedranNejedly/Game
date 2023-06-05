@@ -10,15 +10,22 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] rightRooms;
     public GameObject  closedRoom;
     public List<GameObject> rooms;
+    public List<GameObject> items;
+    public ItemList itemList;
     public float waitTime;
     private bool spawnedBoss = false;
     public GameObject boss;
     public GameObject nextLevelTrigger;
-    public GameObject[] items;
+    // public GameObject[] items;
     bool itemSpawned = false;
     private int rand;
     int randomRoom;
     EnemySpawner enemySpawner;
+
+    void Start(){
+        itemList = GameObject.FindGameObjectWithTag("ItemList").GetComponent<ItemList>();
+        items = itemList.items;
+    }
 
     void Update(){  
 
@@ -35,8 +42,10 @@ public class RoomTemplates : MonoBehaviour
                 int rC = rooms.Count - 2;
                 rand=Random.Range(0,rC);
                 enemySpawner = rooms[rand].GetComponentInChildren<EnemySpawner>();
+                int randomItem = Random.Range(0,items.Count);
                 Vector3 newPos = new Vector3(rooms[rand].transform.position.x,2,rooms[rand].transform.position.z);
-                Instantiate(items[Random.Range(0,items.Length)],newPos,Quaternion.identity);
+                Instantiate(items[randomItem],newPos,Quaternion.identity);
+                items.RemoveAt(randomItem);
                 itemSpawned=true;
                 enemySpawner.setItemRoom();
             }
