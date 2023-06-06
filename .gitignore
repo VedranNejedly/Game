@@ -36,6 +36,14 @@
 /[Aa]ssets/Low-Poly Weapons/
 /[Aa]ssets/GraveyardProps/
 /[Aa]ssets/GeeKay3D/
+/[Aa]ssets/A Steel Oxidised Bracer/
+/[Aa]ssets/Isle of Assets/
+/[Aa]ssets/JKT_ART/
+/[Aa]ssets/ShoesScan1/
+/[Aa]ssets/Mesh/
+/[Aa]ssets/Materials/
+/[Aa]ssets/Textures/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

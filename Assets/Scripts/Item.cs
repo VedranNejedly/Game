@@ -31,9 +31,9 @@ public class Item : MonoBehaviour
                 if(itemName == "ChildsPlaySword"){
                     other.gameObject.GetComponent<PlayerAttack>().updateMeelePlayerAttack(2);
                 }
-
-                if(itemName=="antiTrapVest"){
-                    other.gameObject.GetComponent<PlayerHealth>().antiTrapVest();
+                //Added item
+                if(itemName=="antiTrapBracer"){
+                    other.gameObject.GetComponent<PlayerHealth>().antiTrapBracer();
                 }
                 //Added item
                 if(itemName == "SilverHelmet"){
@@ -57,7 +57,7 @@ public class Item : MonoBehaviour
                 if(itemName == "PotionOfCooldown"){
                     other.gameObject.GetComponent<PlayerMagic>().reduceCooldown(3);
                 }
-
+                //Added item
                 if(itemName == "ForceFieldPower"){
                     other.gameObject.GetComponent<PlayerAttack>().updateCircleDamage(3);
 
@@ -108,7 +108,7 @@ public class Item : MonoBehaviour
                 if(itemName == "ForgeByBlood"){
                     other.gameObject.GetComponent<PlayerHealth>().ForgeByBlood();
                 }
-
+                //Added item
                 if(itemName == "BomberSpawner"){
                     other.gameObject.GetComponent<PlayerAttack>().BomberSpawner();
                 }

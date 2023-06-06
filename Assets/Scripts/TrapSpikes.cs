@@ -21,7 +21,7 @@ public class TrapSpikes : MonoBehaviour
                     trapCanDealDamage = true;
                 }
                 if(trapCanDealDamage && other.tag =="Player"){
-                    if(other.GetComponent<PlayerHealth>().hasAntiTrapVest == false){
+                    if(other.GetComponent<PlayerHealth>().hasAntiTrapBracer == false){
                         other.GetComponent<PlayerHealth>().InflictDamage(damage);
                     }
                 }
