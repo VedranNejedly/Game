@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private bool mercyOfAGod;
     private bool canForgeByBlood = false;
 
-    public bool hasAntiTrapVest = false;
+    public bool hasAntiTrapBracer = false;
 
     public bool isBurning = false;
     private float burnTimer = 10.0f;
@@ -85,8 +85,8 @@ public class PlayerHealth : MonoBehaviour
         maxHealth = maxHealth/2;
     }
 
-    public void antiTrapVest(){
-        hasAntiTrapVest =true;
+    public void antiTrapBracer(){
+        hasAntiTrapBracer =true;
     }
 
     public void MercyOfAGod(){

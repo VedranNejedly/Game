@@ -21,7 +21,7 @@ public class TrapCrusher : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.tag=="Player"){
-            if(other.GetComponent<PlayerHealth>().hasAntiTrapVest == false){
+            if(other.GetComponent<PlayerHealth>().hasAntiTrapBracer == false){
                 other.GetComponent<PlayerHealth>().updateHealth(-trapDamage/2);
             }
         }
