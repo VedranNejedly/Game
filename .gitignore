@@ -43,8 +43,8 @@
 /[Aa]ssets/Mesh/
 /[Aa]ssets/Materials/
 /[Aa]ssets/Textures/
-
-
+/[Aa]ssets/ForAssetStore/
+/[Aa]ssets/VarcanRex/
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+
+    void Start(){
+
+    }
     [SerializeField] public string itemName;
     //Funkcija koja na koliziju s igracem dodijeli item vrijednost igraću
     private void OnTriggerStay(Collider other){
@@ -20,7 +24,6 @@ public class Item : MonoBehaviour
                 if(itemName == "SwordOfBetrayal"){
                     other.gameObject.GetComponent<PlayerAttack>().SwordOfBetrayal();
                 }
-                //Added item
 
                 if(itemName == "SwordOfTheCursed"){
                     other.gameObject.GetComponent<PlayerHealth>().swordCurse();
@@ -75,7 +78,7 @@ public class Item : MonoBehaviour
                 if(itemName == "MercyOfAGod"){
                     other.gameObject.GetComponent<PlayerHealth>().MercyOfAGod();
                 }
-
+                //Added item
                 if(itemName == "BootsOfHermes"){
                     other.gameObject.GetComponent<PlayerMovement>().updateMovementSpeed(4);
                 }

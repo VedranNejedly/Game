@@ -2354,7 +2354,10 @@ MonoBehaviour:
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  speed: 5
+  idle: 0
   fire: {fileID: 5889007706933331121}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}
@@ -2372,7 +2375,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 3, z: 8}
+  m_Size: {x: 6, y: 4, z: 8}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &1310685223201926596
 Rigidbody:
@@ -2388,7 +2391,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &194148
 GameObject:
