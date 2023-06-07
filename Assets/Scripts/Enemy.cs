@@ -244,12 +244,12 @@ public class Enemy : MonoBehaviour
                 traitorTimer = 4.0f;
 
             }
-            var magnitude = 100;
+            // var magnitude = 10;
         // calculate force vector
-            var force = transform.position - other.transform.position;
+            // var force = transform.position - other.transform.position;
         // normalize force vector to get direction only and trim magnitude
-            force.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+            // force.Normalize();
+            // gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
         }
     }
 
@@ -296,12 +296,12 @@ public class Enemy : MonoBehaviour
                 damage+=2;
                 traitorTimer = 4.0f;
             }
-            var magnitude = 100;
-        // calculate force vector
-            var force = transform.position - other.transform.position;
-        // normalize force vector to get direction only and trim magnitude
-            force.Normalize();
-            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+        //     var magnitude = 10;
+        // // calculate force vector
+        //     var force = transform.position - other.transform.position;
+        // // normalize force vector to get direction only and trim magnitude
+        //     force.Normalize();
+        //     gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
         }
     }
 

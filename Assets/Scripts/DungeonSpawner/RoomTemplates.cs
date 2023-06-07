@@ -44,7 +44,7 @@ public class RoomTemplates : MonoBehaviour
                 enemySpawner = rooms[rand].GetComponentInChildren<EnemySpawner>();
                 int randomItem = Random.Range(0,items.Count);
                 Vector3 newPos = new Vector3(rooms[rand].transform.position.x,2,rooms[rand].transform.position.z);
-                Instantiate(items[randomItem],newPos,Quaternion.identity);
+                Instantiate(items[randomItem],newPos,items[randomItem].GetComponent<Transform>().rotation);
                 items.RemoveAt(randomItem);
                 itemSpawned=true;
                 enemySpawner.setItemRoom();
