@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7e497be1a6ff46b447906d64ebda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
   isBoss: 0
   bossIsDead: 0
   damage: 5
@@ -1776,6 +1776,10 @@ MonoBehaviour:
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  speed: 5
+  idle: 0
+  fire: {fileID: 0}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}

@@ -1554,7 +1554,7 @@ MonoBehaviour:
   attacking: 0
   isDying: 0
   isTakingDamage: 0
-  type: Normal
+  type: ThickSkinned
   speed: 5
   idle: 0
   fire: {fileID: 6304830149317552429}

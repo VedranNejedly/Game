@@ -17,7 +17,7 @@ public class Companion : MonoBehaviour
     NavMeshAgent nav; 
     GameObject enemy;
     public GameObject magicField;
-    
+    private Transform healingCircle;
     public int companionMagicDamage = 1;
     private bool magicCircleIsActive = false;
     private float magicAttackTickCooldown = 3.0f;
@@ -29,6 +29,7 @@ public class Companion : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        healingCircle = player.transform.Find("HealingCircle");
         esakc = player.GetComponent<EnemySpawnAndKillCount>();
         target = player.transform;
         if(companionID==2){
@@ -65,36 +66,47 @@ public class Companion : MonoBehaviour
 
         if(timer>magicAttackTickCooldown){
             canTick=true;
+        }else{
+            timer+=Time.deltaTime;
         }
 
     }
 
 
-    private void OnCollisionStay(Collision other){
+    private void OnTriggerStay(Collider other){
         if(other.gameObject.tag=="Enemy"){
+                Debug.Log("Am coliding with the enemy");
                 magicField.SetActive(true);
                 magicCircleIsActive=true;
                 if(canTick){
+                    Debug.Log("Am dealing damage");
+
                     canTick = false;
                     other.gameObject.GetComponent<Enemy>().TakeMagicDamage(companionMagicDamage);
                     timer = 0;
-                }else{
-                    timer+=Time.deltaTime;
-                }
             }
-        
+        }
     }
 
     void healingCompanion(){
-        player.GetComponent<PlayerHealth>().updateHealth(1);
-        StartCoroutine(StartHealingCooldown());
+        if(!(player.GetComponent<PlayerHealth>().health == player.GetComponent<PlayerHealth>().maxHealth)){
+            player.GetComponent<PlayerHealth>().updateHealth(1);
+            healingCircle.gameObject.SetActive(true);
+            Invoke("TurnOffHealingCircle",1.5f);
+            StartCoroutine(StartHealingCooldown());
+        }
 
+    }
+
+    void TurnOffHealingCircle(){
+        healingCircle.gameObject.SetActive(false);
     }
 
     public IEnumerator StartHealingCooldown(){
         companionCanHeal = false;
         yield return new WaitForSeconds(healingCompanionCooldown);
         companionCanHeal = true;
+
     }
 
  

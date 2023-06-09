@@ -9721,11 +9721,15 @@ MonoBehaviour:
   health: 10
   isBoss: 0
   bossIsDead: 0
-  damage: 5
+  damage: 3
   attacking: 0
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  speed: 5
+  idle: 0
+  fire: {fileID: 0}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}

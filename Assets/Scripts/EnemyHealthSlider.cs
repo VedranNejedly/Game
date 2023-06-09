@@ -9,7 +9,7 @@ public class EnemyHealthSlider : MonoBehaviour
 
     public Enemy enemy;
     public Slider enemyHealth;
-    private Camera camera;
+    private new Camera camera;
     public Canvas canvas;
     
     // Start is called before the first frame update

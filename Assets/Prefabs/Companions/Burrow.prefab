@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 1468669237105502970}
   m_Layer: 13
   m_Name: Burrow
-  m_TagString: Untagged
+  m_TagString: Companion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   companionID: 1
   speed: 10
   magicField: {fileID: 5007965420940480372}
-  companionMagicDamage: 1
+  companionMagicDamage: 3
 --- !u!65 &5752907528578052100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -445,7 +445,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105045601172622084}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2, z: 2.5}
