@@ -9,12 +9,15 @@ public class PauseMenu : MonoBehaviour
 {
 
     public bool gameIsPaused=false;
+    public bool gameCanBePaused = true;
     public GameObject pauseMenuUI;
     public GameObject player;
+    private DestroyList dl;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        dl = GameObject.FindGameObjectWithTag("ItemsToDestroy").GetComponent<DestroyList>();
     }
 
     // Update is called once per frame
@@ -24,7 +27,9 @@ public class PauseMenu : MonoBehaviour
             if(gameIsPaused){
                 Resume();
             }else{
-                Pause();
+                if(gameCanBePaused){
+                    Pause();
+                }
             }
         }
     }
@@ -50,6 +55,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMainMenu(){
+        
+    
+
+        for(int i=0;i<dl.itemsToDestroy.Length;i++){
+            Destroy(dl.itemsToDestroy[i]);
+        }
+        Destroy(dl);
+
         Time.timeScale = 1f;
         gameIsPaused = false;
         SceneManager.LoadScene("MainMenu");

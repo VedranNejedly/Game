@@ -9875,7 +9875,7 @@ GameObject:
   - component: {fileID: 3649465200093026518}
   m_Layer: 13
   m_Name: AngryLog
-  m_TagString: Untagged
+  m_TagString: Companion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9956,6 +9956,7 @@ MonoBehaviour:
   companionID: 2
   speed: 5
   magicField: {fileID: 5327475271404015389}
+  companionMagicDamage: 1
 --- !u!54 &-8527218615992907585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9980,7 +9981,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800839809881058091}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4, y: 3, z: 3}
