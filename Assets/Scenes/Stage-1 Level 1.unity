@@ -1126,6 +1126,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3c61f55270cf774aa88bdd144a1cf82, type: 3}
+--- !u!1 &758129136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6448288729253660008, guid: a3c61f55270cf774aa88bdd144a1cf82, type: 3}
+  m_PrefabInstance: {fileID: 758129135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &758129137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758129136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a0258638e60ba4d85b338e2943cc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833667802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3765,10 @@ PrefabInstance:
     - target: {fileID: 737172696711818013, guid: 7c5892011c7494743a5768377f29252e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672396385267498967, guid: 7c5892011c7494743a5768377f29252e, type: 3}
+      propertyPath: m_Name
+      value: DeathScreen
       objectReference: {fileID: 0}
     - target: {fileID: 1672396385267498967, guid: 7c5892011c7494743a5768377f29252e, type: 3}
       propertyPath: m_IsActive
