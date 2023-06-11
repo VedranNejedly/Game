@@ -55,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
             if(soundTimer <= FindObjectOfType<AudioManager>().getSoundLength("Walking")){
                 if(canPlay){
                     FindObjectOfType<AudioManager>().playSound("Walking");  
+                    FindObjectOfType<AudioManager>().playSound("RunningBreathing");  
+
                 }
                 soundTimer += Time.deltaTime;
                 canPlay=false;
@@ -66,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
             
             animator.SetBool("isMoving",false);
             FindObjectOfType<AudioManager>().stopSound("Walking");  
+            FindObjectOfType<AudioManager>().stopSound("RunningBreathing");  
+
             soundTimer = 0f;
             canPlay=true;
 
