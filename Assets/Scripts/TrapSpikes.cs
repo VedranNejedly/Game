@@ -27,6 +27,8 @@ public class TrapSpikes : MonoBehaviour
                 }
                 if(trapCanDealDamage && other.tag =="Enemy"){
                     other.GetComponent<Enemy>().Damage(damage);
+                    FindObjectOfType<AudioManager>().playSound("GetImpaledDummy");
+
                 }
             }
         }

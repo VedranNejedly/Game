@@ -1,6 +1,8 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using System.Collections;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -22,7 +24,9 @@ public class AudioManager : MonoBehaviour
 
     void Start(){
         this.playSound("BackgroundMusic");
+        StartCoroutine(playWithDelay("WhatIsThisPlaceHowDoIGetOut",5.0f));
     }
+
     void Update()
     {      
         if(pauseMenu.gameIsPaused){
@@ -65,5 +69,15 @@ public class AudioManager : MonoBehaviour
        foreach(Sound s in sounds){
         s.source.UnPause();
        }
+    }
+
+
+
+    IEnumerator playWithDelay(string soundName,float delay){
+        yield return new WaitForSeconds(delay);
+        Sound s = Array.Find(sounds,sound=> sound.name == soundName);
+        if(s != null){
+            s.source.Play();
+        }
     }
 }
