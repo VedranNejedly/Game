@@ -22,9 +22,70 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject deathScreen;
     public PauseMenu pauseMenu;
+    private AudioManager audioManager;
+
+    private bool lowHpVoicelinePlayed = false;
 
 
-    public void playerDie(){
+    void Start(){
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        
+    }
+
+    void Update(){
+
+        if(Input.GetKeyDown(KeyCode.X)){
+            if(canForgeByBlood){
+                ForgeArmorByBlood();
+                }
+            }
+
+
+        playerDie();
+
+        if(health<3 && !lowHpVoicelinePlayed){
+            audioManager.playSound("LowHealth");
+        }
+        if(isPoisoned){
+            if(timerForPoison <= 0){
+                isPoisoned = false;
+                audioManager.stopSound("Cough");
+            }else{
+                timerForPoison -= Time.deltaTime;
+            }
+        }
+
+        if(isBurning){
+            if(timerForBurn <=0){
+                isBurning = false;
+            }else{
+                timerForBurn -= Time.deltaTime;
+            }
+        }
+    }
+
+    public void tickPoison(){
+        timerForPoison = poisonTimer;
+        if(!isPoisoned){
+            audioManager.playSound("Cough");
+            audioManager.playSound("Poisoned");
+            timerForPoison = poisonTimer;
+            health -= 1;
+            isPoisoned = true;
+        }
+    }
+
+    public void setOnFire(){
+        timerForBurn = burnTimer;
+        if(!isBurning){
+            isBurning =true;
+            timerForBurn = burnTimer;
+            health -=3;
+
+        }
+    }
+
+        public void playerDie(){
         if(health<=0){
             deathScreen.SetActive(true);
             Time.timeScale = 0f;
@@ -38,10 +99,16 @@ public class PlayerHealth : MonoBehaviour
     public void upadateMaxHealth(int modificator){
         maxHealth +=modificator;
         health +=modificator;
+        if(health>10 && lowHpVoicelinePlayed){
+            lowHpVoicelinePlayed = false;
+        }
     }
 
     public void updateHealth(int modificator){
         health+=modificator;
+        if(health>10 && lowHpVoicelinePlayed){
+            lowHpVoicelinePlayed = false;
+        }
         if(health>maxHealth){
             health=maxHealth;
         }
@@ -102,54 +169,6 @@ public class PlayerHealth : MonoBehaviour
         if(playerArmor < maxPlayerArmor && health>1){
             playerArmor+=1;
             health-=1;
-        }
-    }
-
-    
-    void Update(){
-
-        if(Input.GetKeyDown(KeyCode.X)){
-            if(canForgeByBlood){
-                ForgeArmorByBlood();
-                }
-            }
-
-
-        playerDie();
-        if(isPoisoned){
-            if(timerForPoison <= 0){
-                isPoisoned = false;
-                FindObjectOfType<AudioManager>().stopSound("Cough");
-            }else{
-                timerForPoison -= Time.deltaTime;
-            }
-        }
-
-        if(isBurning){
-            if(timerForBurn <=0){
-                isBurning = false;
-            }else{
-                timerForBurn -= Time.deltaTime;
-            }
-        }
-    }
-
-    public void tickPoison(){
-        timerForPoison = poisonTimer;
-        if(!isPoisoned){
-            FindObjectOfType<AudioManager>().playSound("Cough");
-            timerForPoison = poisonTimer;
-            health -= 1;
-            isPoisoned = true;
-        }
-    }
-
-    public void setOnFire(){
-        timerForBurn = burnTimer;
-        if(!isBurning){
-            isBurning =true;
-            timerForBurn = burnTimer;
-
         }
     }
 }

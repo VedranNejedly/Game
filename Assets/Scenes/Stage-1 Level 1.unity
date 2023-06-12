@@ -952,14 +952,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.7285692, y: -0.50008816, z: -0.041565675, w: 0.46623072}
+  m_LocalPosition: {x: 19.4, y: 18.2, z: 22.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.627, y: -136.837, z: -94.847}
 --- !u!45 &705507996
 Skybox:
   m_ObjectHideFlags: 0
@@ -5913,7 +5913,7 @@ PrefabInstance:
     - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
       propertyPath: topRooms.Array.data[1]
       value: 
-      objectReference: {fileID: 5060246633194341503, guid: c2afed254460ae344a636d57ac728149, type: 3}
+      objectReference: {fileID: 5060246633194341503, guid: 6759aa33acadc6e4b89501fc654ff3e1, type: 3}
     - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
       propertyPath: topRooms.Array.data[2]
       value: 
