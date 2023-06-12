@@ -38,7 +38,15 @@ public class EnemySpawnAndKillCount : MonoBehaviour
     }
 
     public void killCount(){
-        enemyKillCount++;
+        ++enemyKillCount;
+        if(enemyKillCount == 10){
+            audioManager.playSound("10Kills");
+        }
+        if(enemyKillCount == 67){
+            audioManager.playSound("67Kills");
+        }
+
+
     }
 
     public bool checkIfAllKilled(){
@@ -48,11 +56,9 @@ public class EnemySpawnAndKillCount : MonoBehaviour
                 range = Random.Range(0,1);
                 Debug.Log(range);
                 if(range ==0){
-                    Debug.Log("Playing line 1");
                     audioManager.playSound("AllEnemiesAreDead");
                 }
                 if(range == 1){
-                    Debug.Log("Playing line2");
                     audioManager.playSound("AllEnemiesAreDead1");
                 }
             }
