@@ -11,7 +11,7 @@ public class CompanionSpawner : MonoBehaviour
     void Awake(){
         if(GameObject.FindGameObjectWithTag("ValueHolder") != null){
             val = GameObject.FindGameObjectWithTag("ValueHolder").GetComponent<ValueHolder>().value;
-            Destroy(GameObject.FindGameObjectWithTag("ValueHolder"));
+            // Destroy(GameObject.FindGameObjectWithTag("ValueHolder"));
         }
 
     }

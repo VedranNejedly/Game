@@ -58,10 +58,12 @@ public class PauseMenu : MonoBehaviour
         
     
 
-        for(int i=0;i<dl.itemsToDestroy.Length;i++){
+        for(int i=0;i<dl.itemsToDestroy.Count;i++){
             Destroy(dl.itemsToDestroy[i]);
         }
-        Destroy(dl);
+        Destroy(GameObject.Find("DirectionalLight"));
+
+        Destroy(dl.gameObject);
 
         Time.timeScale = 1f;
         gameIsPaused = false;

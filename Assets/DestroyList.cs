@@ -5,12 +5,14 @@ using UnityEngine;
 public class DestroyList : MonoBehaviour
 {
 
-    public GameObject[] itemsToDestroy;
+    public List<GameObject> itemsToDestroy;
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("addCompanionToTheArray",.5f);
+        StartCoroutine(addItemsToList());
+
+        // Invoke("addCompanionToTheArray",.5f);
     
     }
 
@@ -20,7 +22,12 @@ public class DestroyList : MonoBehaviour
         
     }
 
-    void addCompanionToTheArray(){
-        itemsToDestroy[itemsToDestroy.Length-1] = GameObject.FindGameObjectWithTag("Companion");
+    IEnumerator addItemsToList(){
+        yield return new WaitForSeconds(0.2f);
+        itemsToDestroy.Add(GameObject.FindGameObjectWithTag("Companion"));
+        itemsToDestroy.Add(GameObject.FindGameObjectWithTag("Player"));
+        itemsToDestroy.Add(GameObject.Find("AudioManager"));
+        itemsToDestroy.Add(GameObject.Find("Canvas"));
+        itemsToDestroy.Add(GameObject.FindGameObjectWithTag("ValueHolder"));
     }
 }
