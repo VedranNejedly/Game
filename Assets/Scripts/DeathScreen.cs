@@ -15,10 +15,12 @@ public class DeathScreen : MonoBehaviour
 
     PauseMenu pauseMenu;
     public void RestartGame(){
-        for(int i=0;i<dl.itemsToDestroy.Length;i++){
-            Destroy(dl.itemsToDestroy[i]);
+        for(int i=0;i<dl.itemsToDestroy.Count;i++){
+            if(dl.itemsToDestroy[i].name!= "ValueHolder"){
+                Destroy(dl.itemsToDestroy[i]);
+            }
         }
-        Destroy(dl);
+        Destroy(dl.gameObject);
         //Load next scene in the build manager
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
