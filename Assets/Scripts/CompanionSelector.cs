@@ -8,6 +8,8 @@ public class CompanionSelector : MonoBehaviour
 {
 
     public ValueHolder val;
+    public RunStats runStats;
+
     int currentCompanion = 0;
 
     private void SelectCompanion(int index){
@@ -35,6 +37,7 @@ public class CompanionSelector : MonoBehaviour
 
       public void StartGame(){
         //Load next scene in the build manager
+        runStats.StartARun();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
     }
 

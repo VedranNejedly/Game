@@ -17,6 +17,7 @@ TagManager:
   - ItemList
   - ItemsToDestroy
   - Companion
+  - RunStatsSaver
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private float timerForPoison;
     private bool mercyOfAGod;
     private bool canForgeByBlood = false;
+    private bool tickedLoss = false;
 
     public bool hasAntiTrapBracer = false;
 
@@ -87,6 +88,10 @@ public class PlayerHealth : MonoBehaviour
 
         public void playerDie(){
         if(health<=0){
+            if(!tickedLoss){
+                GameObject.FindGameObjectWithTag("RunStatsSaver").GetComponent<RunStats>().LoseARun();
+                tickedLoss= true;
+            }
             deathScreen.SetActive(true);
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
