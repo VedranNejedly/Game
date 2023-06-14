@@ -13,11 +13,17 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject player;
     private DestroyList dl;
+    private RunStats runStats;
+    private PlayerHealth PlayerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        PlayerHealth = player.GetComponent<PlayerHealth>();
         dl = GameObject.FindGameObjectWithTag("ItemsToDestroy").GetComponent<DestroyList>();
+        runStats = GameObject.FindGameObjectWithTag("RunStatsSaver").GetComponent<RunStats>();
+
     }
 
     // Update is called once per frame
@@ -51,11 +57,18 @@ public class PauseMenu : MonoBehaviour
 
 
     public void Quit(){
+        if(PlayerHealth.health>0){
+            runStats.QuitARun();
+        }
         Application.Quit();
+
     }
 
     public void LoadMainMenu(){
-        
+        if(PlayerHealth.health>0){
+            runStats.QuitARun();
+        }
+        Destroy(dl.RunStatsSaver);
     
 
         for(int i=0;i<dl.itemsToDestroy.Count;i++){

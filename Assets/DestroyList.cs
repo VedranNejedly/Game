@@ -6,10 +6,12 @@ public class DestroyList : MonoBehaviour
 {
 
     public List<GameObject> itemsToDestroy;
+    public GameObject RunStatsSaver;
 
     // Start is called before the first frame update
     void Start()
     {
+        RunStatsSaver = GameObject.FindGameObjectWithTag("RunStatsSaver");
         StartCoroutine(addItemsToList());
 
         // Invoke("addCompanionToTheArray",.5f);
@@ -29,5 +31,6 @@ public class DestroyList : MonoBehaviour
         itemsToDestroy.Add(GameObject.Find("AudioManager"));
         itemsToDestroy.Add(GameObject.Find("Canvas"));
         itemsToDestroy.Add(GameObject.FindGameObjectWithTag("ValueHolder"));
+
     }
 }

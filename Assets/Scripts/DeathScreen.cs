@@ -7,16 +7,19 @@ using UnityEngine.SceneManagement;
 public class DeathScreen : MonoBehaviour
 {
     private DestroyList dl;
+    private RunStats runStats;
 
     void Start(){
     dl = GameObject.FindGameObjectWithTag("ItemsToDestroy").GetComponent<DestroyList>();
+    runStats = GameObject.FindGameObjectWithTag("RunStatsSaver").GetComponent<RunStats>();
     }
 
 
     PauseMenu pauseMenu;
     public void RestartGame(){
+        runStats.RestartARun();
         for(int i=0;i<dl.itemsToDestroy.Count;i++){
-            if(dl.itemsToDestroy[i].name!= "ValueHolder"){
+            if((dl.itemsToDestroy[i].name!= "ValueHolder")){
                 Destroy(dl.itemsToDestroy[i]);
             }
         }
