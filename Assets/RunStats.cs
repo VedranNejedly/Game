@@ -17,6 +17,13 @@ public class RunStats : MonoBehaviour
         losses = PlayerPrefs.GetInt("RunLosses");
         wins = PlayerPrefs.GetInt("RunWins");
         winsInARow = PlayerPrefs.GetInt("WinsInARow");
+
+        if(totalRuns != losses + wins){
+            losses = totalRuns - wins;
+            winsInARow = 0;
+            PlayerPrefs.SetInt("WinsInARow",winsInARow);
+            PlayerPrefs.SetInt("RunLosses",losses);
+        }
     }
 
     public void StartARun(){
