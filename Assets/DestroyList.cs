@@ -29,6 +29,7 @@ public class DestroyList : MonoBehaviour
         itemsToDestroy.Add(GameObject.FindGameObjectWithTag("Companion"));
         itemsToDestroy.Add(GameObject.FindGameObjectWithTag("Player"));
         itemsToDestroy.Add(GameObject.Find("AudioManager"));
+        itemsToDestroy.Add(GameObject.Find("ItemList"));
         itemsToDestroy.Add(GameObject.Find("Canvas"));
         itemsToDestroy.Add(GameObject.FindGameObjectWithTag("ValueHolder"));
 

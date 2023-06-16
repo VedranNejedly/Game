@@ -195,8 +195,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 3, z: 2}
-  m_Center: {x: 0, y: 1, z: -2}
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!1 &4061375621811850245
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4061375621811850245}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -231,10 +231,10 @@ RectTransform:
   - {fileID: 2262914514776396356}
   m_Father: {fileID: 2871661218711739299}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 430, y: 205}
+  m_AnchoredPosition: {x: -430, y: 205}
   m_SizeDelta: {x: 865, y: 412}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8555999533107513352
@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 948893988238948654, guid: 56ae8ace7173f864aa65ef7d581939af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.56691
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 948893988238948654, guid: 56ae8ace7173f864aa65ef7d581939af, type: 3}
       propertyPath: m_LocalRotation.w

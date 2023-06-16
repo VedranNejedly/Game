@@ -30,13 +30,6 @@ public class DunbeonObjectsSpawner : MonoBehaviour
 
         }
 
-        // rand=Random.Range(0,dunObjList.dungeonObjects.Length);
-        // Instantiate(dunObjList.dungeonObjects[rand],transform.position, dunObjList.dungeonObjects[rand].transform.rotation);
+    }
 
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

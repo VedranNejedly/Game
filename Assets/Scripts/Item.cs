@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-
+    private Transform player;
     private AudioManager audioManager;
     void Start(){
+        player = GameObject.Find("Player").GetComponent<Transform>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
+    void Update(){
+        transform.LookAt(player);
     }
     [SerializeField] public string itemName;
     //Funkcija koja na koliziju s igracem dodijeli item vrijednost igraću
