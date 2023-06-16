@@ -40,6 +40,7 @@ public class Companion : MonoBehaviour
         }
 
         nav = GetComponent<NavMeshAgent>();
+        nav.speed = speed;
     }
 
     // Update is called once per frame
