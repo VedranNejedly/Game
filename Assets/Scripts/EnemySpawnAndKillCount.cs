@@ -17,7 +17,7 @@ public class EnemySpawnAndKillCount : MonoBehaviour
     public void spawnCount(int numberOfSpawned){
         enemySpawnCount+=numberOfSpawned;
         voicelinePlayed = false;
-        range = Random.Range(0,5);
+        range = Random.Range(0,6);
         if(range ==0){
             audioManager.playSound("NiceFellas");
         }
@@ -53,7 +53,7 @@ public class EnemySpawnAndKillCount : MonoBehaviour
         if(enemySpawnCount>0 && enemyKillCount>0 && enemySpawnCount == enemyKillCount){
             if(!voicelinePlayed){
                 voicelinePlayed = true;
-                range = Random.Range(0,1);
+                range = Random.Range(0,2);
                 Debug.Log(range);
                 if(range ==0){
                     audioManager.playSound("AllEnemiesAreDead");
