@@ -11,25 +11,12 @@ public class RunStats : MonoBehaviour
     public int losses;
     public int winsInARow;
 
-    // Start is called before the first frame update
-    // void Awake(){
-    //     totalRuns = 0;
-    //     wins =0;
-    //     losses = 0;
-    // }
     void Start()
     {
         totalRuns = PlayerPrefs.GetInt("TotalRuns");
         losses = PlayerPrefs.GetInt("RunLosses");
         wins = PlayerPrefs.GetInt("RunWins");
         winsInARow = PlayerPrefs.GetInt("WinsInARow");
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void StartARun(){

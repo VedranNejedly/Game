@@ -31,7 +31,6 @@ public class CompanionSelector : MonoBehaviour
 
     public void ChangeCompanion(int change){
         currentCompanion += change;
-        Debug.Log(currentCompanion);
         SelectCompanion(currentCompanion); 
     }
 
