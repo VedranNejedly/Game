@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: -3592547394902009498}
   - component: {fileID: 7217852391422678468}
   - component: {fileID: 3680482486530398832}
+  - component: {fileID: 5251279470654124120}
   m_Layer: 0
   m_Name: Monster_X_Brown
   m_TagString: Enemy
@@ -1616,6 +1617,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!135 &5251279470654124120
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 50
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!1 &2033941566571378936
 GameObject:
   m_ObjectHideFlags: 0

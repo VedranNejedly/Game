@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: 5792518133992151443}
   - component: {fileID: 7294810764488738887}
   - component: {fileID: 2845392409346606417}
+  - component: {fileID: 3304033644766880137}
   m_Layer: 0
   m_Name: Monster_X_Purple
   m_TagString: Enemy
@@ -1616,6 +1617,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!135 &3304033644766880137
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 50
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!1 &388028212488151999
 GameObject:
   m_ObjectHideFlags: 0

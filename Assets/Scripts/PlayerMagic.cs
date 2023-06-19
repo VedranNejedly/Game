@@ -52,8 +52,8 @@ public class PlayerMagic : MonoBehaviour
 
 
     public void reduceForceFieldCooldown(float cdReduction){
-        if(!(castCooldownInSeconds-cdReduction < 15)){
-            castCooldownInSeconds-=cdReduction;
+        if(!(magicCircleCooldown-cdReduction < 15)){
+            magicCircleCooldown-=cdReduction;
         }else{
             gameObject.GetComponent<PlayerAttack>().updateCircleDamage(2);
         }

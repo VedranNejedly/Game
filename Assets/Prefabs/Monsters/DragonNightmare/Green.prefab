@@ -1822,10 +1822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7e497be1a6ff46b447906d64ebda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 30
   isBoss: 0
   bossIsDead: 0
-  damage: 5
+  damage: 10
   attacking: 0
   isDying: 0
   isTakingDamage: 0
@@ -3005,7 +3005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 411.25, y: 262.5}
+  m_AnchoredPosition: {x: 411.25, y: 264.5}
   m_SizeDelta: {x: 731, y: 470}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2408521250892997137
