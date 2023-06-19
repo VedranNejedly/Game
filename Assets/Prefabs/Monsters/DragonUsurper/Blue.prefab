@@ -3994,6 +3994,7 @@ GameObject:
   - component: {fileID: -220188769614674914}
   - component: {fileID: 1804501080185841949}
   - component: {fileID: 1856603616939112694}
+  - component: {fileID: -8942505382979165387}
   m_Layer: 0
   m_Name: Blue
   m_TagString: Enemy
@@ -4081,6 +4082,10 @@ MonoBehaviour:
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  speed: 5
+  idle: 0
+  fire: {fileID: 0}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}
@@ -4129,6 +4134,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!135 &-8942505382979165387
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &196352
 GameObject:
   m_ObjectHideFlags: 0

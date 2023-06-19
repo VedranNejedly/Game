@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: -1708320151934141410}
   - component: {fileID: 5706185867750830000}
   - component: {fileID: 1809907236478030099}
+  - component: {fileID: -1298705413238895377}
   m_Layer: 0
   m_Name: Ice Frog
   m_TagString: Enemy
@@ -1616,6 +1617,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!135 &-1298705413238895377
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 50
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!1 &596699221900472100
 GameObject:
   m_ObjectHideFlags: 0

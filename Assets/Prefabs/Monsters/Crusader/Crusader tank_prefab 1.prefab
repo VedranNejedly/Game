@@ -9935,6 +9935,7 @@ GameObject:
   - component: {fileID: 1100382841721858276}
   - component: {fileID: 1100382841721858279}
   - component: {fileID: 554513608255381488}
+  - component: {fileID: 7765908441878676949}
   m_Layer: 0
   m_Name: Crusader tank_prefab 1
   m_TagString: Enemy
@@ -9994,10 +9995,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c7e497be1a6ff46b447906d64ebda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
   isBoss: 0
   bossIsDead: 0
-  damage: 5
+  damage: 3
   attacking: 0
   isDying: 0
   isTakingDamage: 0
@@ -10076,6 +10077,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &7765908441878676949
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099921342645418119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1099921656136131801
 GameObject:
   m_ObjectHideFlags: 0

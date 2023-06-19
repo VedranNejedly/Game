@@ -1220,6 +1220,7 @@ GameObject:
   - component: {fileID: 2698203494931595132}
   - component: {fileID: -2084674054195486833}
   - component: {fileID: 2922966363743939051}
+  - component: {fileID: -2007586608687003718}
   m_Layer: 0
   m_Name: Red
   m_TagString: Enemy
@@ -1301,6 +1302,10 @@ MonoBehaviour:
   isDying: 0
   isTakingDamage: 0
   type: Normal
+  speed: 5
+  idle: 0
+  fire: {fileID: 0}
+  explosion: {fileID: 0}
   isChasing: 1
   nav: {fileID: 0}
   player: {fileID: 0}
@@ -1355,6 +1360,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &-2007586608687003718
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &139704
 GameObject:
   m_ObjectHideFlags: 0

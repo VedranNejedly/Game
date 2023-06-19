@@ -211,99 +211,107 @@ public class Enemy : MonoBehaviour
 
 
 
-    // private void OnTriggerEnter(Collider other){
-    //     if(other.gameObject.tag=="Player"){
-    //         AttackPlayer();
-    //     }
-
-    //     if(other.gameObject.tag == "Enemy"){
-    //         var magnitude = 50;
-    //     // calculate force vector
-    //         var force = transform.position - other.transform.position;
-    //     // normalize force vector to get direction only and trim magnitude
-    //         force.Normalize();
-    //         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
-    //     }
-    // }
-
-     private void OnCollisionEnter(Collision other){
-        if(other.gameObject.tag=="Player" && type != "Bomber"){
+    private void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag=="Player"){
             AttackPlayer();
         }
-        if(other.gameObject.tag=="Player" && type == "Bomber"){
-            nav.SetDestination(transform.position);
-            attacking = false;
-            isChasing = false;
-            idle = true;
-            Invoke("Explode",3.0f);
-        }
-        if(other.gameObject.tag == "Enemy"){
-            if(isATraitor && traitorTimer <=0){
-                other.gameObject.GetComponent<Enemy>().Damage(1);
-                damage+=2;
-                traitorTimer = 4.0f;
 
-            }
-            // var magnitude = 10;
+        if(other.gameObject.tag == "Enemy"){
+            var magnitude = 50;
         // calculate force vector
-            // var force = transform.position - other.transform.position;
+            var force = transform.position - other.transform.position;
         // normalize force vector to get direction only and trim magnitude
-            // force.Normalize();
-            // gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+            force.Normalize();
+            gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
         }
     }
 
-    //  private void OnTriggerExit(Collider other){
-    //     if(other.gameObject.tag=="Player"){
+    //  private void OnCollisionEnter(Collision other){
+    //     if(other.gameObject.tag=="Player" && type != "Bomber"){
+    //         AttackPlayer();
+    //     }
+    //     if(other.gameObject.tag=="Player" && type == "Bomber"){
+    //         nav.SetDestination(transform.position);
     //         attacking = false;
-    //         isChasing = true;
+    //         isChasing = false;
+    //         idle = true;
+    //         Invoke("Explode",3.0f);
+    //     }
+    //     if(other.gameObject.tag == "Enemy"){
+    //         if(isATraitor && traitorTimer <=0){
+    //             other.gameObject.GetComponent<Enemy>().Damage(1);
+    //             damage+=2;
+    //             traitorTimer = 4.0f;
+
+    //         }
+    //         // var magnitude = 10;
+    //     // calculate force vector
+    //         // var force = transform.position - other.transform.position;
+    //     // normalize force vector to get direction only and trim magnitude
+    //         // force.Normalize();
+    //         // gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
     //     }
     // }
 
-    
-     private void OnCollisionExit(Collision other){
-        if(other.gameObject.tag=="Player" && type != "Bomber"){
+     private void OnTriggerExit(Collider other){
+        if(other.gameObject.tag=="Player"){
             attacking = false;
             isChasing = true;
         }
     }
 
-
-    // private void OnTriggerStay(Collider other){
-    //     if(other.gameObject.tag=="Player"){
-    //         attacking = true;
-    //         AttackPlayer();
-    //         }
-    //         if(other.gameObject.tag == "Enemy"){
-    //         var magnitude = 50;
-    //     // calculate force vector
-    //         var force = transform.position - other.transform.position;
-    //     // normalize force vector to get direction only and trim magnitude
-    //         force.Normalize();
-    //         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+    
+    //  private void OnCollisionExit(Collision other){
+    //     if(other.gameObject.tag=="Player" && type != "Bomber"){
+    //         attacking = false;
+    //         isChasing = true;
     //     }
     // }
 
-        private void OnCollisionStay(Collision other){
-        if(other.gameObject.tag=="Player" && type !="Bomber"){
+
+    private void OnTriggerStay(Collider other){
+        if(other.gameObject.tag=="Player"){
             attacking = true;
             AttackPlayer();
             }
-
+            
         if(other.gameObject.tag == "Enemy"){
             if(isATraitor && traitorTimer <=0){
                 other.gameObject.GetComponent<Enemy>().Damage(1);
                 damage+=2;
                 traitorTimer = 4.0f;
             }
-        //     var magnitude = 10;
-        // // calculate force vector
-        //     var force = transform.position - other.transform.position;
-        // // normalize force vector to get direction only and trim magnitude
-        //     force.Normalize();
-        //     gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
-        }
+    //     if(other.gameObject.tag == "Enemy"){
+    //     var magnitude = 1;
+    // // calculate force vector
+    //     var force = transform.position - other.transform.position;
+    // // normalize force vector to get direction only and trim magnitude
+    //     force.Normalize();
+    //     gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
     }
+    }
+
+    //     private void OnCollisionStay(Collision other){
+    //     // if(other.gameObject.tag=="Player" && type !="Bomber"){
+    //     //     attacking = true;
+    //     //     AttackPlayer();
+    //     //     }
+
+        // if(other.gameObject.tag == "Enemy"){
+        //     if(isATraitor && traitorTimer <=0){
+        //         other.gameObject.GetComponent<Enemy>().Damage(1);
+        //         damage+=2;
+        //         traitorTimer = 4.0f;
+        //     }
+    //         var magnitude =1;
+    //     // calculate force vector
+    //         var force = transform.position - other.transform.position;
+    //         Debug.Log(force);
+    //     // normalize force vector to get direction only and trim magnitude
+    //         force.Normalize();
+    //         gameObject.GetComponent<Rigidbody>().AddForce(force * magnitude);
+    //     }
+    // }
 
 
 }
