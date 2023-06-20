@@ -49,6 +49,7 @@ public class TriggerNextLevel : MonoBehaviour
         if(other.gameObject.tag=="Player"){
             if(nextLevelTrigger){
                 FindObjectOfType<AudioManager>().stopSound("TrapSlide");
+                GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>().position = new Vector3(2,0,2);
                 loadNextScene();
             }
         }

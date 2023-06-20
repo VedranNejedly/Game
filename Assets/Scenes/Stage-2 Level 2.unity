@@ -705,7 +705,7 @@ PrefabInstance:
     - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
       propertyPath: boss
       value: 
-      objectReference: {fileID: 3070779020065526389, guid: 8c6f76d8269558d439bc207f1fd11064, type: 3}
+      objectReference: {fileID: 170346, guid: c991b691eca533347b9d30662086a99f, type: 3}
     - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
       propertyPath: items.Array.size
       value: 0

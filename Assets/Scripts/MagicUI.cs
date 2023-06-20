@@ -35,5 +35,12 @@ public class MagicUI : MonoBehaviour
             magicFieldCooldown.value = playerMagic.magicCircleCooldown;
             magicFieldTimer = magicFieldCooldown.maxValue;
         }  
+
+        if(magicAttackCooldown.maxValue != (float)playerMagic.castCooldownInSeconds){
+            magicAttackCooldown.maxValue = (float)playerMagic.castCooldownInSeconds;
+        }
+        if( magicFieldCooldown.maxValue != (float)playerMagic.magicCircleCooldown){
+             magicFieldCooldown.maxValue = (float)playerMagic.magicCircleCooldown;
+        }
     }
 }
