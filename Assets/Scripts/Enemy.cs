@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     private bool killed = false;
     public bool idle = false;
 
+
     public GameObject fire;
     public GameObject explosion;
 
@@ -213,7 +214,9 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag=="Player"){
-            AttackPlayer();
+            if(!isDying){
+                AttackPlayer();
+            }
         }
 
         if(other.gameObject.tag == "Enemy"){
@@ -272,7 +275,9 @@ public class Enemy : MonoBehaviour
     private void OnTriggerStay(Collider other){
         if(other.gameObject.tag=="Player"){
             attacking = true;
-            AttackPlayer();
+            if(!isDying){
+                AttackPlayer();
+            }
             }
             
         if(other.gameObject.tag == "Enemy"){

@@ -69,7 +69,6 @@ public class PlayerHealth : MonoBehaviour
         timerForPoison = poisonTimer;
         if(!isPoisoned){
             audioManager.playSound("Cough");
-            audioManager.playSound("Poisoned");
             timerForPoison = poisonTimer;
             health -= 1;
             isPoisoned = true;

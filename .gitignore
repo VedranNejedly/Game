@@ -45,6 +45,8 @@
 /[Aa]ssets/Textures/
 /[Aa]ssets/ForAssetStore/
 /[Aa]ssets/VarcanRex/
+/[Aa]ssets/Rock Package/
+/[Aa]ssets/SineVFX/
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

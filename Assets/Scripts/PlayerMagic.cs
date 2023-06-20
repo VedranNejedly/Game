@@ -46,7 +46,7 @@ public class PlayerMagic : MonoBehaviour
         if(!(castCooldownInSeconds-cdReduction < 10)){
             castCooldownInSeconds-=cdReduction;
         }else{
-            gameObject.GetComponent<PlayerAttack>().updateMagicDamage(10);
+            gameObject.GetComponent<PlayerAttack>().updateMagicDamage(1);
         }
     }
 

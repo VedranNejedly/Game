@@ -276,13 +276,6 @@ MonoBehaviour:
   - {fileID: 4049057657562736918}
   bossRoom: 0
   isItemRoom: 0
-  spawnPoints:
-  - {fileID: 3744761866498990501}
-  - {fileID: 6014780486470202299}
-  - {fileID: 5267443210163369200}
-  - {fileID: 2702110602705705243}
-  - {fileID: 2993923434335499257}
-  - {fileID: 479609590841147299}
 --- !u!1 &2702110602705705243
 GameObject:
   m_ObjectHideFlags: 0

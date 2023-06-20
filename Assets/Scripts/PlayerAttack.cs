@@ -129,8 +129,9 @@ public class PlayerAttack : MonoBehaviour
     public void updateMeelePlayerAttack(int damageMod){
         if(companionDamageBoost){
             meeleDamage=meeleDamage + damageMod*2;
+        }else{
+            meeleDamage+=damageMod;
         }
-        meeleDamage+=damageMod;
     }
     //Funkcija lifesteal() postavlja vrijednost varijable lifestealOnHit u true.
     //Ta varijabla se koristi kod napada igraca te ukoliko je istinita igrac ce dobiti hp nazad na stavi udarac

@@ -18,6 +18,7 @@ public class RunStats : MonoBehaviour
         wins = PlayerPrefs.GetInt("RunWins");
         winsInARow = PlayerPrefs.GetInt("WinsInARow");
 
+
         if(totalRuns != losses + wins){
             losses = totalRuns - wins;
             winsInARow = 0;

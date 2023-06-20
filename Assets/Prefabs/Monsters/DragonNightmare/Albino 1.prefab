@@ -2535,6 +2535,7 @@ GameObject:
   - component: {fileID: 1895312162553740102}
   - component: {fileID: 1895312162553740103}
   - component: {fileID: -2002498567002431042}
+  - component: {fileID: 4522017569426215811}
   m_Layer: 0
   m_Name: Albino 1
   m_TagString: Enemy
@@ -2675,6 +2676,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &4522017569426215811
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895312161853823706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &1895312161853824174
 GameObject:
   m_ObjectHideFlags: 0

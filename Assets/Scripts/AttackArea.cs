@@ -7,6 +7,8 @@ public class AttackArea : MonoBehaviour
     PlayerAttack playerAttack;
     PlayerHealth playerHealth;
     private bool enemyIsInRange = false;
+    private bool bomberSpawned = false;
+    private float bomberSpawnerTimer = 4.0f;
     public GameObject Bomber;
     List <GameObject> currentCollisions = new List <GameObject> ();
 
@@ -24,6 +26,14 @@ public class AttackArea : MonoBehaviour
         if(soundTimer>0){
             soundTimer-=Time.deltaTime;
         }
+
+        if(bomberSpawned){
+            bomberSpawnerTimer-=Time.deltaTime;
+            if(bomberSpawnerTimer <=0){
+                bomberSpawned = false;
+                bomberSpawnerTimer = 4.0f;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other){
@@ -32,8 +42,9 @@ public class AttackArea : MonoBehaviour
         currentCollisions.Add (other.gameObject);
     
         if(playerAttack.hasBomberSpawner){
-                    Debug.Log("I HAVE IT");
+            if(!bomberSpawned){
                     SpawnBomber();
+            }
                 }
 
         if(other.tag=="Enemy" && currentCollisions.Contains(other.gameObject)){
@@ -75,6 +86,7 @@ public class AttackArea : MonoBehaviour
 
     private void SpawnBomber(){
         Instantiate(Bomber,transform.position,Bomber.transform.rotation);
+        bomberSpawned = true;
 
     }
 
