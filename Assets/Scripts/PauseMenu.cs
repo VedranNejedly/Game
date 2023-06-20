@@ -68,15 +68,17 @@ public class PauseMenu : MonoBehaviour
         if(PlayerHealth.health>0){
             runStats.QuitARun();
         }
-        Destroy(dl.RunStatsSaver);
+
+        dl.DestroyerToMenu();
+        // Destroy(dl.RunStatsSaver);
     
 
-        for(int i=0;i<dl.itemsToDestroy.Count;i++){
-            Destroy(dl.itemsToDestroy[i]);
-        }
-        Destroy(GameObject.Find("DirectionalLight"));
+        // for(int i=0;i<dl.itemsToDestroy.Count;i++){
+        //     Destroy(dl.itemsToDestroy[i]);
+        // }
+        // Destroy(GameObject.Find("DirectionalLight"));
 
-        Destroy(dl.gameObject);
+        // Destroy(dl.gameObject);
 
         Time.timeScale = 1f;
         gameIsPaused = false;

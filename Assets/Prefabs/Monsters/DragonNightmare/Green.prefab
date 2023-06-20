@@ -1742,6 +1742,7 @@ GameObject:
   - component: {fileID: -6796227794607284340}
   - component: {fileID: -2583298478564090786}
   - component: {fileID: 4612864584363926463}
+  - component: {fileID: -2817380902455769943}
   m_Layer: 0
   m_Name: Green
   m_TagString: Enemy
@@ -1882,6 +1883,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &-2817380902455769943
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &169100
 GameObject:
   m_ObjectHideFlags: 0

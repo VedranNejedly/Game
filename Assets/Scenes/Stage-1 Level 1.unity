@@ -999,7 +999,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 39.627, y: -136.837, z: -94.847}
 --- !u!45 &705507996
 Skybox:
@@ -2942,7 +2942,7 @@ MonoBehaviour:
   magicSpawnPoint: {fileID: 683484166}
   magicPrefab: {fileID: 6955575308319649142, guid: 814efd5a80efcbe4db8f4a7893238091, type: 3}
   magicSpeed: 10
-  castCooldownInSeconds: 10
+  castCooldownInSeconds: 20
   canCast: 1
   canCastMagicCircle: 1
   magicCircle: {fileID: 1708576066}
@@ -3100,7 +3100,7 @@ PrefabInstance:
       objectReference: {fileID: 6852884099929114104, guid: dc9c73d97adc6354ca5b84a86eef56b1, type: 3}
     - target: {fileID: 7015013491796051893, guid: a3c61f55270cf774aa88bdd144a1cf82, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7015013491796051893, guid: a3c61f55270cf774aa88bdd144a1cf82, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4035,6 +4035,110 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000012968262300, guid: 30b99e7dc1382e346a7f9789de00de5e, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000010869019282, guid: d7ba4fe833670a140b9b6085652f0e26, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1000011949594382, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1000011696945378, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1000013569322780, guid: 5d10ae558efe6a64d96e5b4d02ec6792, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1000011143488790, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 4975992283186577160, guid: a5cfae0c84e6839458402fe5ff164489, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 8502877683014940021, guid: 8645f23428b8fa94dbf4740af656bf41, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 4826681354768662251, guid: 69f8294379d6d7a48a0ff362d73b76a5, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 3197897713988625114, guid: de7348210d33e3f4a9177a6c81932906, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[10]
+      value: 
+      objectReference: {fileID: 9043488183130494154, guid: fb46ff6ad89544f40960a4f73497f364, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[11]
+      value: 
+      objectReference: {fileID: 8920451722830340893, guid: 38abf0b844cfc0149abf189d94a0a489, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[12]
+      value: 
+      objectReference: {fileID: 141590128589588569, guid: e15ff6aaf85d677438e36e7f4760c409, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[13]
+      value: 
+      objectReference: {fileID: 5891507235397566571, guid: c32617fbe360ae14f8360f0bf788d3f7, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[14]
+      value: 
+      objectReference: {fileID: 6828854166910983126, guid: f2174f186c282974a8eda0241942d373, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[15]
+      value: 
+      objectReference: {fileID: 6812740093994395239, guid: d7ecf716be42aa7418e191eae43ad90e, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[16]
+      value: 
+      objectReference: {fileID: 1000012968262300, guid: 30b99e7dc1382e346a7f9789de00de5e, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[17]
+      value: 
+      objectReference: {fileID: 1000010869019282, guid: d7ba4fe833670a140b9b6085652f0e26, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[18]
+      value: 
+      objectReference: {fileID: 1000011949594382, guid: 75fa8bf3a73ee6b4da0c7a2c6d3db6a1, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[19]
+      value: 
+      objectReference: {fileID: 1000011696945378, guid: f94554303b4f7094ea5e12fe79985529, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[20]
+      value: 
+      objectReference: {fileID: 1000013569322780, guid: 5d10ae558efe6a64d96e5b4d02ec6792, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[21]
+      value: 
+      objectReference: {fileID: 1000011143488790, guid: a649302f8407dd9469e2c5b67b4a0674, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[22]
+      value: 
+      objectReference: {fileID: 8502877683014940021, guid: 8645f23428b8fa94dbf4740af656bf41, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[23]
+      value: 
+      objectReference: {fileID: 4975992283186577160, guid: a5cfae0c84e6839458402fe5ff164489, type: 3}
+    - target: {fileID: 5896632572427234542, guid: d485b056986358b408c10caee4358248, type: 3}
+      propertyPath: dungeonObjects.Array.data[24]
+      value: 
+      objectReference: {fileID: 4826681354768662251, guid: 69f8294379d6d7a48a0ff362d73b76a5, type: 3}
     - target: {fileID: 5896632572427234543, guid: d485b056986358b408c10caee4358248, type: 3}
       propertyPath: m_Name
       value: DungeonObjectsList

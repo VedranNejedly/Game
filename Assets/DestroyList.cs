@@ -34,4 +34,25 @@ public class DestroyList : MonoBehaviour
         itemsToDestroy.Add(GameObject.FindGameObjectWithTag("ValueHolder"));
 
     }
+
+    public void DestroyerToMenu(){
+        Destroy(RunStatsSaver);
+
+        for(int i=0;i<itemsToDestroy.Count;i++){
+            Destroy(itemsToDestroy[i]);
+        }
+        Destroy(GameObject.Find("DirectionalLight"));
+
+        Destroy(gameObject);
+    }
+
+    public void DestroyAndReset(){
+        for(int i=0;i<itemsToDestroy.Count;i++){
+            if((itemsToDestroy[i].name!= "ValueHolder")){
+                Destroy(itemsToDestroy[i]);
+            }
+        }
+        Destroy(gameObject);
+
+    }
 }
