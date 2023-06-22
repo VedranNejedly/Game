@@ -26,7 +26,7 @@ public class DeathScreen : MonoBehaviour
         // }
         // Destroy(dl.gameObject);
         //Load next scene in the build manager
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         Time.timeScale = 1f;
     }
 
