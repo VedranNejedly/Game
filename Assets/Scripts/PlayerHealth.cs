@@ -44,8 +44,9 @@ public class PlayerHealth : MonoBehaviour
 
         playerDie();
 
-        if(health<3 && !lowHpVoicelinePlayed){
+        if(health<3 && !lowHpVoicelinePlayed && health>0 && !pauseMenu.gameIsPaused){
             audioManager.playSound("LowHealth");
+            lowHpVoicelinePlayed = true;
         }
         if(isPoisoned){
             if(timerForPoison <= 0){
@@ -175,4 +176,7 @@ public class PlayerHealth : MonoBehaviour
             health-=1;
         }
     }
+
+
+
 }

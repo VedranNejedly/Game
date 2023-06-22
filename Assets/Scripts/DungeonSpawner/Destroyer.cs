@@ -5,7 +5,8 @@ using UnityEngine;
 public class Destroyer : MonoBehaviour
 {
     void OnTriggerEnter(Collider other){
-        if(other.CompareTag("SpawnPoint")){
+        if(other.tag =="SpawnPoint"){
+            Debug.Log("Colided with other spawn point");
             Destroy(other.gameObject);
             }
     }

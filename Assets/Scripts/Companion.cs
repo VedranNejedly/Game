@@ -32,10 +32,10 @@ public class Companion : MonoBehaviour
         healingCircle = player.transform.Find("HealingCircle");
         esakc = player.GetComponent<EnemySpawnAndKillCount>();
         target = player.transform;
-        if(companionID==2){
+        if(companionID==3){
             player.GetComponent<PlayerMovement>().updateMovementSpeed(5);
         }
-        if(companionID==3){
+        if(companionID==2){
             player.GetComponent<PlayerAttack>().enableCompanionDamageBoost();
         }
 
