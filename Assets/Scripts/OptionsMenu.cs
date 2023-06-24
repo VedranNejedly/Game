@@ -10,11 +10,15 @@ public class OptionsMenu : MonoBehaviour
     public TMP_Dropdown resolutionsDropdown;
     Resolution[] resolutionsArray;
     int pcResolutionIndex = 0;
+    public Slider mouseSens;
+
 
     void Start(){
+        mouseSens.value = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>().getSensitivity();
         resolutionsArray = Screen.resolutions;
         resolutionsDropdown.ClearOptions();
         List<string> options = new List<string>();
+        
 
         for(int i=0;i<resolutionsArray.Length;i++){
             string option = resolutionsArray[i].width+ " x " +resolutionsArray[i].height; 
@@ -42,6 +46,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void fullscreenToggle(bool isFullscreen){
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetMouseSensitivity(){
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>().setSensitivity(mouseSens.value);
     }
 }
  

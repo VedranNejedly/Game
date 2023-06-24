@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity;
     //Objekt koji mozemo rotirati
     public Transform playerBody;
     float xRotation= 0f;
@@ -14,6 +14,10 @@ public class MouseLook : MonoBehaviour
     {
         //Kursor je zaključan u sredini ekrana i nije vidljiv.
         Cursor.lockState = CursorLockMode.Locked;
+        if(PlayerPrefs.GetFloat("MouseSensitivity")==0){
+            PlayerPrefs.SetFloat("MouseSensitivity",100f);
+        }
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }
 
     // Update is called once per frame
@@ -33,6 +37,14 @@ public class MouseLook : MonoBehaviour
         //Rotacija objekta na x osi
         playerBody.Rotate(Vector3.up * mouseXAxis);
 
+    }
+
+    public void setSensitivity(float sensitivity){
+        mouseSensitivity = sensitivity;
+        PlayerPrefs.SetFloat("MouseSensitivity",mouseSensitivity);
+    }
+    public float getSensitivity(){
+        return mouseSensitivity;
     }
 }
 
