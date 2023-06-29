@@ -76,12 +76,9 @@ public class Companion : MonoBehaviour
 
     private void OnTriggerStay(Collider other){
         if(other.gameObject.tag=="Enemy"){
-                Debug.Log("Am coliding with the enemy");
                 magicField.SetActive(true);
                 magicCircleIsActive=true;
                 if(canTick){
-                    Debug.Log("Am dealing damage");
-
                     canTick = false;
                     other.gameObject.GetComponent<Enemy>().TakeMagicDamage(companionMagicDamage);
                     timer = 0;
@@ -108,7 +105,6 @@ public class Companion : MonoBehaviour
         yield return new WaitForSeconds(healingCompanionCooldown);
         companionCanHeal = true;
 
-    }
-
- 
+    } 
 }
+

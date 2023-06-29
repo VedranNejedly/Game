@@ -33,8 +33,6 @@ public class EnemySpawnAndKillCount : MonoBehaviour
         if(range == 5){
             audioManager.playSound("PutYourHandsDown");
         }
-        
-        
     }
 
     public void killCount(){

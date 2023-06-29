@@ -27,49 +27,6 @@ public class RunTimer : MonoBehaviour
         seconds = Mathf.FloorToInt(runTimer % 60);
 
         runTimerUI.GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}:{2:00}",hours,minutes,seconds);
-        // if(hours<1){
-        //     if(seconds<10 && minutes <10 ){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "00:0"+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else if(seconds > 10 && minutes<10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "00:0"+minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        //     else if(seconds < 10 && minutes >10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "00:"+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else{
-        //         runTimerUI.GetComponent<TMP_Text>().text = "00:" + minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        // }
-        // else if(hours>1 && hours <10){
-        //       if(seconds<10 && minutes <10 ){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "0"+hours.ToString()+":0"+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else if(seconds > 10 && minutes<10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "0"+hours.ToString()+":0"+minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        //     else if(seconds < 10 && minutes >10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = "0"+hours.ToString()+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else{
-        //         runTimerUI.GetComponent<TMP_Text>().text = "0"+hours.ToString() + minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        // }
-        // else{
-        //     if(seconds<10 && minutes <10 ){
-        //         runTimerUI.GetComponent<TMP_Text>().text = hours.ToString()+":0"+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else if(seconds > 10 && minutes<10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = hours.ToString()+":0"+minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        //     else if(seconds < 10 && minutes >10){
-        //         runTimerUI.GetComponent<TMP_Text>().text = hours.ToString()+minutes.ToString()+":0"+ seconds.ToString();
-        //     }
-        //     else{
-        //         runTimerUI.GetComponent<TMP_Text>().text = hours.ToString() + minutes.ToString()+":"+ seconds.ToString();
-        //     }
-        // }
-
-
     }
 }
+

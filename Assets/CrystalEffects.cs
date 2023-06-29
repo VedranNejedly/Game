@@ -15,9 +15,6 @@ public class CrystalEffects : MonoBehaviour
     public bool isSpeedCrystal;
     public bool isSlowCrystal;
 
-
-
-
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
             if(!crystalActivated){

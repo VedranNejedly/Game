@@ -16,7 +16,6 @@ public class RoomTemplates : MonoBehaviour
     private bool spawnedBoss = false;
     public GameObject boss;
     public GameObject nextLevelTrigger;
-    // public GameObject[] items;
     bool itemSpawned = false;
     private int rand;
     int randomRoom;
@@ -53,23 +52,7 @@ public class RoomTemplates : MonoBehaviour
         else{
             waitTime -= Time.deltaTime;
         }
-
-        //         for(int i=0;i<rooms.Count;i++){
-        //             if(i==rooms.Count-1){
-
-        //                 // Instantiate(boss,rooms[i].transform.position,Quaternion.identity);
-        //                 // Instantiate(nextLevelTrigger,rooms[i].transform.position,Quaternion.identity);
-
-        //             }
-        //         }
-        //     }
-        //     if(itemSpawned==false){
-        //         Instantiate(items[Random.Range(0,items.Length)],rooms[Random.Range(0,rooms.Count-2)].transform.position,Quaternion.identity);
-        //         itemSpawned=true;
-        //     }
-
-
     }
-    
 }
+
 
