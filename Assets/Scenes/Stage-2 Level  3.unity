@@ -631,6 +631,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 132742, guid: f2e647297c513434cb140cf5ad735dc3, type: 3}
     - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
+      propertyPath: waitTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488195442701026748, guid: f6dd9d9259e251442827e3d227cde768, type: 3}
       propertyPath: items.Array.size
       value: 0
       objectReference: {fileID: 0}

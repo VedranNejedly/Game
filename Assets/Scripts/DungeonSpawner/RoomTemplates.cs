@@ -30,6 +30,7 @@ public class RoomTemplates : MonoBehaviour
 
         if(waitTime<=0){
             if(spawnedBoss==false){
+                spawnedBoss = true;
                 for(int i=0;i<rooms.Count;i++){
                     if(i==rooms.Count-1){
                         enemySpawner = rooms[i].GetComponentInChildren<EnemySpawner>();
